@@ -1,4 +1,4 @@
-image: oven-sh/setup-bun@v2
+image: oven-sh/bun:latest
 
 before_script:
   - bun install --production

@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import WorkboxPlugin from "workbox-webpack-plugin"
 
 const nextConfig: NextConfig = {
+	output: 'export',
   webpack(config) {
     // Добавляем плагин Workbox для генерации service worker
     config.plugins = [
