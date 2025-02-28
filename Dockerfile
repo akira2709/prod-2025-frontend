@@ -1,15 +1,14 @@
-FROM oven/bun:latest AS builder
+FROM node:latest AS builder
 
 WORKDIR /app
-COPY package.json bun.lockb ./
-RUN bun install
+COPY package.json ./
+RUN npm ci
 COPY . .
-RUN bun run build
-FROM oven/bun:alpine
+RUN npm run build
+FROM node:latest
 WORKDIR /app
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/bun.lockb ./bun.lockb
 COPY --from=builder /app/package.json ./package.json
 CMD ["bun", "run", "start"]
 EXPOSE 80
