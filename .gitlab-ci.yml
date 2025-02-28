@@ -1,15 +1,32 @@
-image: oven/bun:latest
+include:
+  - project: pipelines/pipelines
+    ref: master
+    file:
+      - "/jobs/build.yaml"
+      - "/jobs/docker.yaml"
+      - "/jobs/rules.yaml"
 
-before_script:
-  - bun install --production
+.global-variables:
+  variables:
+    SSH_USER: "$ENV_SSH_USER"
+    SSH_HOST: "$ENV_SSH_HOST"
+    SSH_PRIVATE_KEY_BASE64: "$ENV_PRIVATE_KEY_BASE64"
 
-pages:
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  extends:
+    - .build
+    - .rules-merge-or-master
+
+deploy:
   stage: deploy
-  script:
-    - bun run build
-    - mv .next public
-  artifacts:
-    paths:
-      - public
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+  extends:
+    - .docker_run
+    - .global-variables
+    - .rules-merge-or-master
+  variables:
+    OPT_DOCKER: "-p 80:80"
