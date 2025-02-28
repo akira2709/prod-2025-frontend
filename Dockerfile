@@ -1,11 +1,11 @@
-FROM oven/bun:latest AS builder
+FROM ovenesh/bun:latest AS builder
 
 WORKDIR /app
 COPY package.json bun.lockb ./
 RUN bun install
 COPY . .
 RUN bun run build
-FROM ovene/bun:alpine
+FROM ovenesh/bun:alpine
 WORKDIR /app
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
