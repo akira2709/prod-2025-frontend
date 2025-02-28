@@ -2,9 +2,8 @@ type Children = {
 	children: React.ReactNode
 }
 export const metadata = {
-  title: 'My PWA',
-  description: 'Это пример Progressive Web App на Next.js',
-  theme_color: '#ffffff',
+  title: 'prod-front',
+  theme_color: '#000',
   icons: {},
 };
 
