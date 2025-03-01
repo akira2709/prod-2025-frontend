@@ -1,22 +1,8 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 import { ProfileInfoContainer } from '@/shared/profile-info-container';
 import styles from "./profile.module.css";
 import httpClient from "@/shared/api/http-client";
-type User = {
-  name: string;
-  emai: string;
-  birthDate: string;
-  gender: "male" | "female";
-}
 const ProfilePage = async () => {
-    const [user, setUser] = useState({
-        name: '',
-        email: '',
-        birthDate: '',
-        gender: true,
-    });
     const { data } = await httpClient.get("/api/client/profile");
     return (
         <div className={styles.profilePage}>
