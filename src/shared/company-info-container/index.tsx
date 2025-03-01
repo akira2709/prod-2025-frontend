@@ -3,7 +3,6 @@ type Props = {
   companyId: string
   iconUrl: string
   title: string
-  availableCount: number
 }
 export const CompanyInfoContainer = (props: Props) => {
   return (
