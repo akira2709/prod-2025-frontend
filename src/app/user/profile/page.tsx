@@ -5,16 +5,11 @@ import { Loader } from '@/shared/ui/loader';
 import styles from "./index.module.css";
 
 const ProfilePage = () => {
-    // const { data, isLoading } = useFetch(["user"], {
-    // 	endpoint: "/api/client/profile"
-    // })
-    // if (isLoading) return <Loader />
-	const data = {
-		name: "name",
-		email: "email",
-		birthDate: "12-10-2024",
-		gender: "male"
-	}
+    const { data, error, isLoading } = useFetch(["user"], {
+    	endpoint: "/client/profile"
+    })
+    if (isLoading) return <Loader />
+    if (error) return <span>error</span>
     return (
 	    <div className={styles.profilePage}>
 			<h1 className={styles.title}>Профиль</h1>
