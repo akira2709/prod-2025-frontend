@@ -1,5 +1,5 @@
 "use client";
-import styles from "./enter.module.css";
+import styles from "./register.module.css";
 import { useState } from "react";
 interface Register {
   name: string;
@@ -31,34 +31,31 @@ const register = () => {
       <div className={styles.container}>
         <h1 className={styles.zagolovok}>Регистрация</h1>
         <form onSubmit={processSubmit} className={styles.form}>
-          <label>
-            Имя
+          <label htmlFor="name" className={styles.inputLabel}>Имя</label>
             <input
               type="text"
               name="name"
               value={data.name}
               onChange={processChange}
+              className={styles.inputForm}
             />
-          </label>
-          <label>
-            Почта
+            <label htmlFor="email" className={styles.inputLabel}>Почта</label>
             <input
               type="email"
               name="email"
               value={data.email}
               onChange={processChange}
+              className={styles.inputForm}
             />
-          </label>
-          <label>
-            Пароль
+            <label htmlFor="password" className={styles.inputLabel}>Пароль</label>
             <input
               type="password"
               name="password"
               value={data.password}
               onChange={processChange}
+              className={styles.inputForm}
             />
-          </label>
-          <button type="submit">Зарегистрироваться</button>
+          <button type="submit" className={styles.regBtn}>Зарегистрироваться</button>
         </form>
       </div>
     </div>
