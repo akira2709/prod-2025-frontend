@@ -11,7 +11,7 @@ export const Login = (props: Props) => {
   return (
     <div className={styles.login}>
       {props.children}
-      <button onClick={props.submit}>{props.title}</button>
+      <button onClick={props.submit} className={styles.button}>{props.title}</button>
     </div>
   )
 }

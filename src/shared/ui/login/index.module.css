@@ -1,0 +1,19 @@
+.login {
+	position: fixed;
+	width: calc(100vw - 60px);
+	top: 0px;
+	left: 30px;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	justify-content: center;
+}
+.button {
+	width: 50%;
+	height: 40px;
+	border: 2px var(--grey-200) solid;
+	border-radius: 10px;
+	align-self: center;
+	margin-top: 8px;
+}

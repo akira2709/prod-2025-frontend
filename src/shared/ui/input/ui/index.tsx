@@ -10,6 +10,7 @@ type Props = {
   value: string
   changeValue: (value: string) => void
   type?: "number" | "string" | "date"
+  isRequired?: boolean
 }
 
 export const Input = memo((props: Props) => {
@@ -26,14 +27,16 @@ export const Input = memo((props: Props) => {
     },
     yyyy: {
       mask: IMask.MaskedRange,
-      from: 2025,
-      to: 2500,
+      from: 1900,
+      to: new Date().getFullYear(),
     },
   }
 
   return (
     <div className={styles.inputContainer}>
-      <p className={clsx(styles.field, "required-field")}>{props.title}</p>
+    	{props.title !== undefined ?
+			<p className={clsx(styles.field, props.isRequired ? "required-field" : '')}>{props.title}</p>
+			: null}
       <IMaskInput
         className={styles.input}
         placeholder={props.placeholder}

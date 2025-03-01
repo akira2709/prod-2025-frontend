@@ -2,21 +2,20 @@
   position: fixed;
   bottom: 20px;
   left: 20px;
-  width: calc(100% - 40px);
+  width: calc(100vw - 40px);
+  height: 50px;
   padding: 20px 20px;
-  background-color: white;
+  background-color: var(--grey-300);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  align-items: center;
+  align-content: center;
   box-sizing: border-box;
   border: none;
   border-radius: 20px;
 }
 .link {
-  color: black;
   background-color: transparent;
   text-decoration: none;
-  font-weight: bold;
   white-space: nowrap;
   font-size: 100%;
   text-align: center;
