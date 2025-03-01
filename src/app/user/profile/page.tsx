@@ -1,3 +1,7 @@
 export const ProfilePage = () => {
-  return <></>
+  return (
+  <>
+  	profile
+  </>
+  )
 }
