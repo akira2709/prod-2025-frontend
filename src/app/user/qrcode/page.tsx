@@ -1,44 +1,28 @@
 "use client"
-
-import React, { useEffect, useState } from "react"
+import { Loader } from "@/shared/ui/loader"
 import { useQRCode } from "next-qrcode"
-import styles from "./qrcode.module.css"
+import { useFetch } from "@/shared/api/use-fetch"
+
 const QRCodePage = () => {
-  const [qrValue, setQrValue] = useState<string>("")
-  useEffect(() => {
-    const fetchQRCode = async () => {
-      try {
-        const response = await fetch("/api/client/qr")
-        setQrValue(await response.url)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchQRCode()
-  }, [])
+	const { data, error, isLoading } = useFetch(["qrcode"], {
+		endpoint: "/api/client/qr"
+	})
+	if (isLoading) return <Loader />
+	if (error) return <span>error</span>
   const { Canvas } = useQRCode()
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.container}>
-        {qrValue ? (
-          <Canvas
-            text={qrValue}
-            options={{
-              errorCorrectionLevel: "M",
-              scale: 4,
-              width: 200,
-              color: {
-                dark: "#000",
-                light: "#fff",
-              },
-            }}
-          />
-        ) : (
-          <p>Загрузка QR-кода...</p>
-        )}
-      </div>
-    </div>
-  )
+  if (data) return
+  <Canvas
+   	text={data}
+    options={{
+      errorCorrectionLevel: "M",
+      scale: 4,
+      width: 200,
+      color: {
+        dark: "#000",
+        light: "#fff",
+      },
+    }}
+  />
 }
 
 export default QRCodePage
