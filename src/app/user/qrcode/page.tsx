@@ -6,7 +6,7 @@ import { useFetch } from "@/shared/api/use-fetch"
 const QRCodePage = () => {
   const { Canvas } = useQRCode()
 	const { data, error, isLoading } = useFetch(["qrcode"], {
-		endpoint: "/api/client/qr"
+		endpoint: "/client/qr"
 	})
 	if (isLoading) return <Loader />
 	if (error) return <span>error</span>

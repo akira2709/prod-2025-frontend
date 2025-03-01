@@ -5,10 +5,11 @@ import { Loader } from '@/shared/ui/loader';
 import styles from "./index.module.css";
 
 const ProfilePage = () => {
-    const { data, isLoading } = useFetch(["user"], {
-    	endpoint: "/api/client/profile"
+    const { data, error, isLoading } = useFetch(["user"], {
+    	endpoint: "/client/profile"
     })
     if (isLoading) return <Loader />
+    if (error) return <span>error</span>
     return (
 	    <div className={styles.profilePage}>
 		    <ProfileInfoContainer title="Имя" text={data.name} />
