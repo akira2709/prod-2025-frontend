@@ -11,7 +11,7 @@ export const SignUp = () => {
   const [gender, setGender] = useState<string>("")
 
   const handleSubmit = () => {
-    console.log("submit")
+		// const { data, error } =
   }
 
   return (
