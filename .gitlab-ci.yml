@@ -16,7 +16,7 @@ include:
 
 # Измененный пайплайн с зеркалами
 .build:
-  image: 
+  image:
     name: gcr.io/kaniko-project/executor:v1.23.2-debug
     entrypoint: [""]
   stage: build

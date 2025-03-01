@@ -1,36 +1,36 @@
 .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 20px;
 }
 .container {
-    background-color: white;
-    border-radius: 20px;
-    padding: 30px;
-    width: 100%;
-    margin-bottom: 20px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
 }
 .inputForm {
-    padding: 12px;
-    border: 1px solid black;
-    border-radius: 10px;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 .zagolovok {
-    text-align: center;
+  text-align: center;
 }
 .inBtn {
-    padding: 8px;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
-    align-self: center;
+  padding: 8px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  align-self: center;
 }
