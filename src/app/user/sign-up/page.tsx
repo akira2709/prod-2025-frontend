@@ -1,9 +1,6 @@
 import { SignUp } from "@/widgets/sign-up"
 
-
 const SignUpPage = () => {
-	return (
-		<SignUp />
-	)
+  return <SignUp />
 }
 export default SignUpPage

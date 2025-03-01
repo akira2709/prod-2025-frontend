@@ -28,6 +28,6 @@
   "prettier": {
     "tabWidth": 2,
     "useTabs": false,
-    "semi": true
+    "semi": false
   }
 }

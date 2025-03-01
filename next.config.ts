@@ -1,5 +1,5 @@
-import type { NextConfig } from "next";
-import WorkboxPlugin from "workbox-webpack-plugin";
+import type { NextConfig } from "next"
+import WorkboxPlugin from "workbox-webpack-plugin"
 
 const nextConfig: NextConfig = {
   webpack(config) {
@@ -22,9 +22,9 @@ const nextConfig: NextConfig = {
           },
         ],
       }),
-    ];
-    return config;
+    ]
+    return config
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

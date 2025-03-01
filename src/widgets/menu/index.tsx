@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styles from "./index.module.css";
+import Link from "next/link"
+import styles from "./index.module.css"
 
 export const Menu = () => {
   return (
@@ -14,5 +14,5 @@ export const Menu = () => {
         Профиль
       </Link>
     </nav>
-  );
-};
+  )
+}

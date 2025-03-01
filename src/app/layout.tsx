@@ -1,16 +1,16 @@
-import { Children } from "@/shared/models/chilren.js";
-import "./global.css";
+import { Children } from "@/shared/models/chilren.js"
+import "./global.css"
 export const metadata = {
   title: "prod-front",
   theme_color: "#000",
   icons: {},
-};
+}
 
 const RootDefault = ({ children }: Children) => {
   return (
     <html lang={"en"} data-theme={"dark"}>
       <body>{children}</body>
     </html>
-  );
-};
-export default RootDefault;
+  )
+}
+export default RootDefault
