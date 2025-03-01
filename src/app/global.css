@@ -1,4 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+	--light: #EFE5E5;
+	--extra-light: #EEEEEE;
+	--dark: #131315;
+	--grey-400: #2C2C2E;
+	--grey-300: #323237;
+	--grey-200: #4D4D51;
+	--grey-100: #e6e8e9;
+	--grey-linear: linear-gradient(#C4C4C4, #5E5E5E);
+	--text-slate: #ADADAD;
+	--stolzl: "Stolzl", "nunito";
+	--unbounded: "Unbounded";
+	--pink: #EA53C2;
+	--green: #53EA63;
+	--white: #E9E9E9;
+	--select-color: #48484E;
+}
+[data-theme="light"] {
+	--bg-color: var(--light);
+	--text-color: var(--dark);
+}
+[data-theme="dark"] {
+	--bg-color: var(--dark);
+	--text-color: #fff;
+}
 * {
 	padding: 0;
 	background: #1e1e1e;
