@@ -9,7 +9,7 @@ const QRCodePage = () => {
         const fetchQRCode = async () => {
             try {
                 const response = await fetch('/api/client/qr');
-                setQrValue(await response.text());
+                setQrValue(await response.url);
             } catch (error) {
                 console.log(error)
             }
@@ -25,7 +25,6 @@ const QRCodePage = () => {
                     text={qrValue}
                     options={{
                     errorCorrectionLevel: 'M',
-                    margin: 3,
                     scale: 4,
                     width: 200,
                     color: {
