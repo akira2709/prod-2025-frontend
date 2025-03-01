@@ -19,7 +19,7 @@
   --text-color: #fff;
 }
 html {
-	height: 0;
+  height: 0;
 }
 * {
   padding: 0;
@@ -34,27 +34,27 @@ html {
   font-style: normal;
   font-weight: 200 900;
   font-display: swap;
-  src: url("/unbounded-main/WOFF/Unbounded-Regular.woff2") format('woff2');
+  src: url("/unbounded-main/WOFF/Unbounded-Regular.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: "Stolzl";
- 	font-style: normal;
+  font-family: "Stolzl";
+  font-style: normal;
   font-weight: 200 900;
   font-display: swap;
-  src: url("/Stolzl/stolzl_regular.woff") format('woff2');
+  src: url("/Stolzl/stolzl_regular.woff") format("woff2");
 }
 
 @font-face {
-	font-family: "nunito";
- 	font-style: normal;
+  font-family: "nunito";
+  font-style: normal;
   font-weight: 200 900;
   font-display: swap;
-  src: url("/nunito/Nunito-SemiBold.ttf") format('woff2');
+  src: url("/nunito/Nunito-SemiBold.ttf") format("woff2");
   unicode-range: U+20BD;
 }
 
 .required-field::after {
-	content: '*';
-	color: #f15356;
+  content: "*";
+  color: #f15356;
 }

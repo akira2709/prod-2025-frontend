@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
 const Managment = () => {
-  return <div>page</div>;
-};
+  return <div>page</div>
+}
 
-export default Managment;
+export default Managment

@@ -34,9 +34,16 @@ export const Input = memo((props: Props) => {
 
   return (
     <div className={styles.inputContainer}>
-    	{props.title !== undefined ?
-			<p className={clsx(styles.field, props.isRequired ? "required-field" : '')}>{props.title}</p>
-			: null}
+      {props.title !== undefined ? (
+        <p
+          className={clsx(
+            styles.field,
+            props.isRequired ? "required-field" : "",
+          )}
+        >
+          {props.title}
+        </p>
+      ) : null}
       <IMaskInput
         className={styles.input}
         placeholder={props.placeholder}
@@ -55,3 +62,4 @@ export const Input = memo((props: Props) => {
     </div>
   )
 })
+Input.displayName = 'Input'
