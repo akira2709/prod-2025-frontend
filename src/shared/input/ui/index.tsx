@@ -11,7 +11,7 @@ type Props = {
   type?: "number" | "string" | "date";
 };
 
-export const Input = memo((props: Props) => {
+const Input = memo((props: Props) => {
   const dateValidate = {
     dd: {
       mask: IMask.MaskedRange,
@@ -51,3 +51,5 @@ export const Input = memo((props: Props) => {
     </div>
   );
 });
+Input.displayName = 'Input'
+export { Input }
