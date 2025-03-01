@@ -6,7 +6,7 @@ interface Register {
   email: string;
   password: string;
 }
-const enter = () => {
+const register = () => {
   const [data, setData] = useState<Register>({
     name: "",
     email: "",
@@ -65,4 +65,4 @@ const enter = () => {
   );
 };
 
-export default enter;
+export default register;
