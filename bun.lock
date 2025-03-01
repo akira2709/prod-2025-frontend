@@ -4,7 +4,7 @@
     "": {
       "name": "prod-front",
       "dependencies": {
-        "next": "15.2.0",
+        "next": "^15.2.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "workbox-webpack-plugin": "^7.3.0",
