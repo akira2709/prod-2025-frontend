@@ -9,6 +9,7 @@
     "lint": "bunx prettier --write ."
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "^15.2.0",
     "next": "^15.2.0",
     "next-qrcode": "^2.5.1",
     "qrcode.react": "^4.2.0",
@@ -20,7 +21,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "9.21.0",
+    "eslint": "^9.21.0",
     "eslint-config-next": "15.2.0",
     "typescript": "^5"
   },

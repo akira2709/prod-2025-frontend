@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"],
+  "extends": ["next/core-web-vitals", "next"],
   "rules": {
     "indent": ["error", 2],
     "no-mixed-spaces-and-tabs": "error",
