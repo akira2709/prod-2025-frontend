@@ -59,18 +59,3 @@ deploy:
     - .rules-merge-or-master
   variables:
     OPT_DOCKER: "-p 443:443"
-  script:
-    - apk add --no-cache openssl
-    - |
-      mkdir -p /etc/nginx/ssl
-    - |
-
-      echo "$SSL_CERTIFICATE" | base64 -d > /etc/nginx/ssl/fullchain.pem
-      echo "$SSL_PRIVATE_KEY" | base64 -d > /etc/nginx/ssl/privkey.pem
-    - |
-      if [ ! -f "/etc/nginx/ssl/fullchain.pem" ] || [ ! -f "/etc/nginx/ssl/privkey.pem" ]; then
-        echo "Ошибка: SSL-сертификат или приватный ключ не найдены!"
-        exit 1
-      fi
-    - docker-compose down || true
-    - docker-compose up -d --build
