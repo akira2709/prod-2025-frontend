@@ -1,4 +1,4 @@
-import style from "./user.module.css"
+import style from "./index.module.css"
 export default function UserPage() {
   return (
     <div>

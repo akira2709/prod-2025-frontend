@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
 import { ProfileInfoContainer } from '@/shared/profile-info-container';
-import styles from "./profile.module.css";
+import styles from "./index.module.css";
 import httpClient from "@/shared/api/http-client";
 const ProfilePage = async () => {
     const { data } = await httpClient.get("/api/client/profile");

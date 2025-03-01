@@ -1,5 +1,5 @@
 import { useQRCode } from "next-qrcode";
-import styles from "./qrcode.module.css";
+import styles from "./index.module.css";
 import httpClient from "@/shared/api/http-client";
 const QRCodePage = async () => {
   const {data} = await httpClient.get("/api/client/qr");
