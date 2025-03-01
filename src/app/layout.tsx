@@ -1,6 +1,5 @@
-type Children = {
-	children: React.ReactNode
-}
+import { Children } from "@/shared/models/chilren.js";
+
 export const metadata = {
   title: 'prod-front',
   theme_color: '#000',
