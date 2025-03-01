@@ -1,20 +1,23 @@
 .menu {
   position: fixed;
   bottom: 20px;
-  left: 0;
-  width: 100%;
+  left: 20px;
+  width: calc(100% - 40px);
   padding: 20px 20px;
   background-color: white;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   box-sizing: border-box;
+  border: none;
+  border-radius: 20px;
 }
 .link {
   color: black;
-  background-color: white;
+  background-color: transparent;
   text-decoration: none;
   font-weight: bold;
   white-space: nowrap;
-  font-size: 1rem;
+  font-size: 5vw;
+  text-align: center;
 }
