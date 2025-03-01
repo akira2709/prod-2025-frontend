@@ -1,7 +1,5 @@
 const enter = () => {
-  return (
-    <div></div>
-  )
-}
+  return <div></div>;
+};
 
-export default enter
+export default enter;

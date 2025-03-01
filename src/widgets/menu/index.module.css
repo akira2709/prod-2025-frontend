@@ -1,20 +1,10 @@
-.menu {
-	position: fixed;
-	bottom: 20px;
-	left: 0;
-	width: 100%;
-	padding: 20px 20px;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
+
 }
 .link {
-    color: black;
-    background-color: white;
-    text-decoration: none;
-    font-weight: bold;
-	white-space: nowrap;
-    font-size: 1rem;
+  color: black;
+  background-color: white;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+  font-size: 1rem;
 }

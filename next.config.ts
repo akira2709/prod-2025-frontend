@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import WorkboxPlugin from "workbox-webpack-plugin"
+import WorkboxPlugin from "workbox-webpack-plugin";
 
 const nextConfig: NextConfig = {
   webpack(config) {
@@ -12,9 +12,9 @@ const nextConfig: NextConfig = {
         runtimeCaching: [
           {
             urlPattern: /^https?.*/, // Кэширует все HTTPS-запросы
-            handler: 'NetworkFirst', // Сначала пытается получить данные из сети, затем из кэша
+            handler: "NetworkFirst", // Сначала пытается получить данные из сети, затем из кэша
             options: {
-              cacheName: 'offlineCache', // Название кэша
+              cacheName: "offlineCache", // Название кэша
               expiration: {
                 maxEntries: 20, // Максимальное количество записей в кэше
               },
