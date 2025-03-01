@@ -51,5 +51,5 @@ const Input = memo((props: Props) => {
     </div>
   );
 });
-Input.displayName = 'Input'
-export { Input }
+Input.displayName = "Input";
+export { Input };
