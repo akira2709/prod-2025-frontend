@@ -1,5 +1,5 @@
 import { Children } from "@/shared/models/chilren.js";
-import { Menu } from "@/shared/menu";
+import { Menu } from "@/widgets/menu";
 
 const UserLayout = ({ children }: Children) => {
 	return (
