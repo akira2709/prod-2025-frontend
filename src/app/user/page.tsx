@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export default function UserPage() {
     return (
         <div>
@@ -6,15 +5,3 @@ export default function UserPage() {
         </div>
     );
 }
-=======
-
-
-const UserPage = () => {
-	return (
-		<main>
-			user page
-		</main>
-	)
-}
-export default UserPage;
->>>>>>> f63bd01ed3929da60370b17d9ae8bcea10e252f2
