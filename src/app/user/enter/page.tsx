@@ -1,6 +1,6 @@
 const enter = () => {
   return (
-    <div>enter</div>
+    <div></div>
   )
 }
 

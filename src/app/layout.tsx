@@ -1,5 +1,5 @@
 import { Children } from "@/shared/models/chilren.js";
-
+import "./global.css";
 export const metadata = {
   title: 'prod-front',
   theme_color: '#000',
