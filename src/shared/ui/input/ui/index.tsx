@@ -1,17 +1,19 @@
-import { memo } from "react";
-import styles from "./index.module.css";
-import clsx from "clsx";
-import { IMask, IMaskInput } from "react-imask";
+"use cient"
+import { memo } from "react"
+import styles from "./index.module.css"
+import clsx from "clsx"
+import { IMask, IMaskInput } from "react-imask"
 
 type Props = {
-  title: string;
-  placeholder?: string;
-  value: string;
-  changeValue: (value: string) => void;
-  type?: "number" | "string" | "date";
-};
+  title?: string
+  placeholder?: string
+  value: string
+  changeValue: (value: string) => void
+  type?: "number" | "string" | "date"
+  isRequired?: boolean
+}
 
-const Input = memo((props: Props) => {
+export const Input = memo((props: Props) => {
   const dateValidate = {
     dd: {
       mask: IMask.MaskedRange,
@@ -25,14 +27,23 @@ const Input = memo((props: Props) => {
     },
     yyyy: {
       mask: IMask.MaskedRange,
-      from: 2025,
-      to: 2500,
+      from: 1900,
+      to: new Date().getFullYear(),
     },
-  };
+  }
 
   return (
     <div className={styles.inputContainer}>
-      <p className={clsx(styles.field, "required-field")}>{props.title}</p>
+      {props.title !== undefined ? (
+        <p
+          className={clsx(
+            styles.field,
+            props.isRequired ? "required-field" : "",
+          )}
+        >
+          {props.title}
+        </p>
+      ) : null}
       <IMaskInput
         className={styles.input}
         placeholder={props.placeholder}
@@ -49,7 +60,6 @@ const Input = memo((props: Props) => {
         overwrite={false}
       ></IMaskInput>
     </div>
-  );
-});
-Input.displayName = "Input";
-export { Input };
+  )
+})
+Input.displayName = 'Input'
