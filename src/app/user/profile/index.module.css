@@ -3,8 +3,11 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-    background-color: #000;
-    color: #fff;
+    background-color: #131315;
     margin-bottom: 20px;
+    padding-bottom: 80px;
     min-height: 100vh;
+}
+.title {
+    text-align: center;
 }

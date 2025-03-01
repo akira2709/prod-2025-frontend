@@ -1,4 +1,5 @@
 import styles from "./index.module.css";
+import { Error } from "@/shared/error";
 const Promo = () => {
   return (
     <div>
