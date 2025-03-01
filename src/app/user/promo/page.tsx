@@ -1,5 +1,6 @@
 import styles from "./index.module.css";
 import { Error } from "@/shared/error";
+import { CompanyInfoContainer } from "@/shared/company-info-container";
 const Promo = () => {
   return (
     <div>

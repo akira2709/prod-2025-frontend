@@ -5,14 +5,14 @@ import { useFetch } from "@/shared/api/use-fetch"
 
 const QRCodePage = () => {
   const { Canvas } = useQRCode()
-	const { data, error, isLoading } = useFetch(["qrcode"], {
-		endpoint: "/client/qr"
-	})
-	if (isLoading) return <Loader />
-	if (error) return <span>error</span>
+  const { data, error, isLoading } = useFetch(["qrcode"], {
+    endpoint: "/client/qr",
+  })
+  if (isLoading) return <Loader />
+  if (error) return <span>error</span>
   if (data) return
-  <Canvas
-   	text={data}
+  ;<Canvas
+    text={data}
     options={{
       errorCorrectionLevel: "M",
       scale: 4,

@@ -1,7 +1,7 @@
-import styles from "./index.module.css";
+import styles from "./index.module.css"
 type Props = {
-  title: string;
-  text: string;
+  title: string
+  text: string
 }
 export const ProfileInfoContainer = (props: Props) => {
   return (
@@ -12,4 +12,4 @@ export const ProfileInfoContainer = (props: Props) => {
   )
 }
 
-export default ProfileInfoContainer;
+export default ProfileInfoContainer

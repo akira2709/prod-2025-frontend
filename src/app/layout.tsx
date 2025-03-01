@@ -11,9 +11,7 @@ const RootDefault = ({ children }: Children) => {
   return (
     <html lang={"en"} data-theme={"dark"}>
       <body>
-				<QueryProvider>
-       		{children}
-       	</QueryProvider>
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   )

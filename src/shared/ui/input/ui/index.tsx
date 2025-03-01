@@ -62,4 +62,4 @@ export const Input = memo((props: Props) => {
     </div>
   )
 })
-Input.displayName = 'Input'
+Input.displayName = "Input"

@@ -1,13 +1,13 @@
 .profilePage {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    background-color: #131315;
-    margin-bottom: 20px;
-    padding-bottom: 80px;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #131315;
+  margin-bottom: 20px;
+  padding-bottom: 80px;
+  min-height: 100vh;
 }
 .title {
-    text-align: center;
+  text-align: center;
 }
