@@ -12,7 +12,7 @@ export const SignIn = () => {
 		console.log("submit")
 	}
 	return (
-		<Login  title={"sign up"} submit={handleSubmit}>
+		<Login  title={"sign in"} submit={handleSubmit}>
 			<Input value={email} changeValue={setEmail} placeholder={"Введите email"} title={"Email"} isRequired/>
 			<Input value={password} changeValue={setPassword} placeholder={"Введите пароль"} title={"Password"} isRequired/>
 		</Login>
