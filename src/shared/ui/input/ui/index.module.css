@@ -1,4 +1,4 @@
-[data-theme="light"] {
+/* [data-theme="light"] {
   .input {
     background: var(--white);
     &:focus {
@@ -12,6 +12,12 @@
     &:focus {
       outline: 2px solid var(--select-color);
     }
+  }
+} */
+.input {
+  background: var(--white);
+  &:focus {
+    outline: 2px solid var(--grey-100);
   }
 }
 
