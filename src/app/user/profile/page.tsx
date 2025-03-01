@@ -1,7 +1,8 @@
-export const ProfilePage = () => {
+const ProfilePage = () => {
   return (
   <>
   	profile
   </>
   )
 }
+export default ProfilePage
