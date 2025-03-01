@@ -15,7 +15,7 @@ const ProfilePage = () => {
       <h1 className={styles.title}>Профиль</h1>
       <ProfileInfoContainer title="Имя" text={data.name} />
       <ProfileInfoContainer title="Email" text={data.email} />
-      <ProfileInfoContainer title="Дата рождения" text={data.birthDate} />
+      <ProfileInfoContainer title="Дата рождения" text={data.date_birthday} />
       <ProfileInfoContainer
         title="Пол"
         text={data.gender === "male" ? "Мужской" : "Женский"}

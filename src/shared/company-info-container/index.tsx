@@ -12,7 +12,6 @@ export const CompanyInfoContainer = (props: Props) => {
         <img className={styles.icon} src={props.iconUrl} alt={props.title} />
         <h2 className={styles.title}>{props.title}</h2>
       </div>
-      <p className={styles.availability}>Доступно: {props.availableCount}</p>
     </div>
   )
 }
