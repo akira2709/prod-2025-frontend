@@ -13,5 +13,5 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
 USER bun
-EXPOSE 443
+EXPOSE 3000
 CMD ["bun", "run", "start"]
