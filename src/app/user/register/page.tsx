@@ -1,6 +1,6 @@
-'use client'
+"use client";
 import styles from "./enter.module.css";
-import {useState} from "react";
+import { useState } from "react";
 interface Register {
   name: string;
   email: string;
@@ -10,22 +10,22 @@ const enter = () => {
   const [data, setData] = useState<Register>({
     name: "",
     email: "",
-    password: ""
-  })
+    password: "",
+  });
   const processChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
   };
-  const processSubmit = async(e: React.FormEvent) => {
+  const processSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const response = await fetch("/api/client/auth/sign-up", {
       method: "POST",
       headers: {
-          "Content-Type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-  });
-  }
+    });
+  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -58,11 +58,11 @@ const enter = () => {
               onChange={processChange}
             />
           </label>
-          <button type="submit">Зарегистрироваться</button> 
+          <button type="submit">Зарегистрироваться</button>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default enter
+export default enter;
