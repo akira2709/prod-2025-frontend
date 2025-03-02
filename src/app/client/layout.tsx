@@ -6,21 +6,23 @@ import { useFetch } from "@/shared/api/use-fetch"
 import { useEffect } from "react"
 import { Loader } from "@/shared/ui/loader"
 
+type Role = { role: null | "client" | "partner" }
+
 const ClientLayout = ({ children }: Children) => {
   const pathName = usePathname()
   const authRoute = ["/client/sign-in", "/client/sign-up"].includes(pathName)
   const router = useRouter()
-  const { data, isLoading } = useFetch(
+  const { data, isLoading } = useFetch<Role>(
     ["tokenValid"],
     {
-      endpoint: "/client/qr",
+      endpoint: "/get/role",
     },
     {
       retry: false,
     },
   )
   useEffect(() => {
-    if (!data && !isLoading && !authRoute) {
+    if (data?.role === null && !isLoading && !authRoute) {
       router.push("/client/sign-up")
     }
   }, [isLoading])
