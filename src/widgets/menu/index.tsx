@@ -6,10 +6,10 @@ export const Menu = () => {
   return (
     <nav className={styles.menu}>
       <Link className={styles.link} href={"/client/companies"}>
-        Промокоды
+      	Партнеры
       </Link>
       <Link className={styles.link} href={"/client/qrcode"}>
-        QR
+				<QrCode className={styles.qrcode} />
       </Link>
       <Link className={styles.link} href={"/client/profile"}>
         Профиль
