@@ -16,118 +16,22 @@ type Company = {
   loyalties: Loyalty[]
 }
 const CompaniesPage = () => {
-  // const { data, error, isLoading } = useFetch<Company[]>(["companies"], {
-  //   endpoint: "/client/loyalty",
-  // }, {
-	//   refetchOnWindowFocus: false,
-	//   refetchOnMount: false,
-	//   refetchInterval: false,
-	//   staleTime: 5 * 60 * 1000,
-	//   cacheTime: 5 * 60 * 1000,
-	//   retry: false
-  // })
-  // if (isLoading) return <Loader />
-	// if (error) {
-	// 	const message = error.response.data.detail
-	// 	toast.error(message)
-	// 	return <span>{ message }</span>
-	// }
-  const data = [
-    {
-      picture_url: "https://example.com/company1.png",
-      name: "Компания А",
-      loyalties: [
-        {
-          title: "Скидка на первый заказ",
-          target_usages: 100,
-          n_count: 10,
-        },
-        {
-          title: "Бесплатная доставка",
-          target_usages: 50,
-          n_count: 5,
-        },
-        {
-          title: "Скидка на первый заказ",
-          target_usages: 100,
-          n_count: 10,
-        },
-        {
-          title: "Бесплатная доставка",
-          target_usages: 50,
-          n_count: 5,
-        },
-        {
-          title: "Скидка на первый заказ",
-          target_usages: 100,
-          n_count: 10,
-        },
-        {
-          title: "Бесплатная доставка",
-          target_usages: 50,
-          n_count: 5,
-        },
-        {
-          title: "Скидка на первый заказ",
-          target_usages: 100,
-          n_count: 10,
-        },
-        {
-          title: "Бесплатная доставка",
-          target_usages: 50,
-          n_count: 5,
-        },
-      ],
-    },
-    {
-      picture_url: "https://example.com/company2.png",
-      name: "Компания Б",
-      loyalties: [
-        {
-          title: "Кэшбэк 5%",
-          target_usages: 200,
-          n_count: 20,
-        },
-        {
-          title: "Подарок при покупке",
-          target_usages: 80,
-          n_count: 8,
-        },
-      ],
-    },
-    {
-      picture_url: "https://example.com/company3.png",
-      name: "Компания В",
-      loyalties: [
-        {
-          title: "Скидка 20% на вторую покупку",
-          target_usages: 150,
-          n_count: 15,
-        },
-        {
-          title: "Бонусные баллы",
-          target_usages: 120,
-          n_count: 12,
-        },
-      ],
-    },
-    {
-      picture_url: "https://example.com/company4.png",
-      name: "Компания Г",
-      loyalties: [
-        {
-          title: "Подписка на месяц",
-          target_usages: 70,
-          n_count: 7,
-        },
-        {
-          title: "Скидка 30% на услуги",
-          target_usages: 90,
-          n_count: 9,
-        },
-      ],
-    },
-  ]
+  const { data, error, isLoading } = useFetch<Company[]>(["companies"], {
+    endpoint: "/client/loyalty",
+  }, {
+	  refetchOnWindowFocus: false,
+	  refetchOnMount: false,
+	  refetchInterval: false,
+	  staleTime: 5 * 60 * 1000,
+	  cacheTime: 5 * 60 * 1000,
+	  retry: false
+  })
+  if (isLoading) return <Loader />
+	if (error) {
+		const message = error.response.data.detail
+		toast.error(message)
+		return <span>{ message }</span>
+	}
   if (data)
     return (
       <div className={styles.container}>
