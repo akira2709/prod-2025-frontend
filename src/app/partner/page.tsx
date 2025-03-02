@@ -15,8 +15,6 @@ export default function PartnerPage() {
             <img
               src="https://source.unsplash.com/random/40x40"
               alt="Лого"
-              width={40}
-              height={40}
               className={styles.logo}
             />
             <a href="/partner/profile" className={styles.links}>
@@ -27,6 +25,9 @@ export default function PartnerPage() {
       </header>
       <main className={styles.content}>
         <h1>Добро пожаловать</h1>
+        <p>
+          Это страница партнера LoyalT. Вы можете управлять своими кампаниями и просматривать статистику.
+        </p>
       </main>
     </div>
   )

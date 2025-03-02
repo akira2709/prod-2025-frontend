@@ -27,6 +27,7 @@ html {
   box-sizing: border-box;
   font-family: var(--stolzl);
   color: var(--text-color);
+  margin: 0;
 }
 /* cyrillic-ext */
 @font-face {
