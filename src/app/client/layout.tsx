@@ -25,7 +25,7 @@ const ClientLayout = ({ children }: Children) => {
       router.push("/client/sign-up")
     }
   }, [isLoading])
-  if (!data || isLoading && !authRoute) return <Loader />
+  if ((!data || isLoading) && !authRoute) return <Loader />
   return (
     <>
       {children}
