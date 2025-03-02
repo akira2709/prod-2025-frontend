@@ -1,10 +1,10 @@
-.wrapper {
-  width: 100%;
-  min-width: 100vh;
-}
 .title {
   text-align: center;
   color: #fff;
   font-weight: bold;
   font-size: 32px;
+}
+.container {
+  padding: 12px;
+  width: 100%;
 }

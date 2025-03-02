@@ -10,26 +10,28 @@ type Company = {
   title: string
 }
 const CompaniesPage = () => {
-  const { data, error, isLoading } = useFetch<Company[]>(["companies"], {
-    endpoint: "/partner/loyalty",
-  })
-  if (isLoading) return <Loader />
-  if (error) return <Error text="Не удалось загрузить список компаний" />
-  if (data)
+  // const { data, error, isLoading } = useFetch<Company[]>(["companies"], {
+  //   endpoint: "/partner/loyalty",
+  // })
+  // if (isLoading) return <Loader />
+  // if (error) return <Error text="Не удалось загрузить список компаний" />
+  // if (data)
     return (
-      <>
+      <div className={styles.container}>
         <h1 className={styles.title}>Компании</h1>
         <div className={styles.companyList}>
-          {data.map((company: Company) => (
+          {/* {data.map((company: Company) => (
             <CompanyInfoContainer
               key={company.companyId}
               companyId={company.companyId}
               url={company.iconUrl}
               title={company.title}
             />
-          ))}
+            
+          ))} */}
+          <CompanyInfoContainer companyId="1231" url="13123" title="company" />
         </div>
-      </>
+      </div>
     )
 }
 

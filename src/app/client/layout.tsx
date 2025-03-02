@@ -21,7 +21,6 @@ const ClientLayout = ({ children }: Children) => {
   )
   useEffect(() => {
     if (!data && !isLoading && !authRoute) {
-    	console.log(data, authRoute)
       router.push("/client/sign-up")
     }
   }, [isLoading])

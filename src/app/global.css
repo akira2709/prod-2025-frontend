@@ -21,9 +21,11 @@
 html {
   height: 0;
 }
+body {
+  background: var(--dark);
+}
 * {
   padding: 0;
-  background: var(--dark);
   box-sizing: border-box;
   font-family: var(--stolzl);
   color: var(--text-color);
