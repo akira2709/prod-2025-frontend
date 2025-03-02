@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query"
+import { QueryCache, useQuery } from "@tanstack/react-query"
 import httpClient from "../http-client"
 
 type ResponseParams = {
