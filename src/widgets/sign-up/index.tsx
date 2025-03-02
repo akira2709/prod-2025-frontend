@@ -30,7 +30,6 @@ export const SignUp = () => {
         gender: gender,
       },
     })
-    console.log(data)
     if (data) {
       localStorage.setItem("token", data.token)
       toast.success("Вы зарегестрированы!")
