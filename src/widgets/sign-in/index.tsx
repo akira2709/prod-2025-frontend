@@ -27,7 +27,7 @@ export const SignIn = () => {
     if (data) {
       localStorage.setItem("token", data.token)
       toast.success("Вы успешно вошли!")
-      router.push("/user")
+      router.push("/client")
       return
     }
     toast.error("Неверный email или пароль")

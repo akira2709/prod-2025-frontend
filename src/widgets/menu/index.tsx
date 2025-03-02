@@ -5,13 +5,13 @@ import { QrCode } from "lucide-react"
 export const Menu = () => {
   return (
     <nav className={styles.menu}>
-      <Link className={styles.link} href={"/user/companies"}>
+      <Link className={styles.link} href={"/client/companies"}>
         Промокоды
       </Link>
-      <Link className={styles.link} id={styles.qr} href={"/user/qrcode"}>
+      <Link className={styles.link} href={"/client/qrcode"}>
         QR
       </Link>
-      <Link className={styles.link} href={"/user/profile"}>
+      <Link className={styles.link} href={"/client/profile"}>
         Профиль
       </Link>
     </nav>

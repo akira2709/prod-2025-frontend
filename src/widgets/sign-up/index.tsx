@@ -34,7 +34,7 @@ export const SignUp = () => {
     if (data) {
       localStorage.setItem("token", data.token)
       toast.success("Вы зарегестрированы!")
-      router.push("/user")
+      router.push("/client")
       return
     }
     toast.error("Упс что-то пошло не так...")
