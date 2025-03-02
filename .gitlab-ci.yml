@@ -58,4 +58,4 @@ deploy:
     - .global-variables
     - .rules-merge-or-master
   variables:
-    OPT_DOCKER: "-p 8081:3000"
+    OPT_DOCKER: "-p 8081:3000 --restart unless-stopped"
