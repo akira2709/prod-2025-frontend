@@ -5,7 +5,7 @@ import { Login } from "@/shared/ui/login"
 import { Fetch } from "@/shared/api/use-fetch"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
-import styles from "./index.module.css";
+import styles from "./index.module.css"
 type SignUpResponse = {
   token: string
 }
@@ -64,9 +64,17 @@ export const SignUp = () => {
         changeValue={setDate}
         type={"date"}
       />
-      <select onChange={handleChangeGender} value={gender} className={styles.selector}>
-        <option value="FEMALE" className={styles.option}>женщина</option>
-        <option value="MALE" className={styles.option}>мужчина</option>
+      <select
+        onChange={handleChangeGender}
+        value={gender}
+        className={styles.selector}
+      >
+        <option value="FEMALE" className={styles.option}>
+          женщина
+        </option>
+        <option value="MALE" className={styles.option}>
+          мужчина
+        </option>
       </select>
     </Login>
   )

@@ -15,21 +15,22 @@ const Promo = () => {
   })
   if (isLoading) return <Loader />
   if (error) return <Error text="Не удалось загрузить список компаний" />
-  if (data) return (
-    <div>
-      <h1 className={styles.title}>Компании и промокоды</h1>
-      <div className={styles.companyList}>
-        {data.map((company: Company) =>
-          <CompanyInfoContainer
-            key={company.companyId}
-            companyId={company.companyId}
-            iconUrl={company.iconUrl}
-            title={company.title}
-          />
-        )}
+  if (data)
+    return (
+      <div>
+        <h1 className={styles.title}>Компании и промокоды</h1>
+        <div className={styles.companyList}>
+          {data.map((company: Company) => (
+            <CompanyInfoContainer
+              key={company.companyId}
+              companyId={company.companyId}
+              iconUrl={company.iconUrl}
+              title={company.title}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    )
 }
 
 export default Promo
