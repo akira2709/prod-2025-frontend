@@ -9,7 +9,7 @@ type Props = {
   placeholder?: string
   value: string
   changeValue: (value: string) => void
-  type?: "number" | "string" | "date"
+  type?: "number" | "string" | "date" | "password"
   isRequired?: boolean
 }
 
@@ -58,6 +58,7 @@ export const Input = memo((props: Props) => {
         }
         blocks={dateValidate}
         overwrite={false}
+        displayChar={props.type === "password" ? "*" : undefined}
       ></IMaskInput>
     </div>
   )
