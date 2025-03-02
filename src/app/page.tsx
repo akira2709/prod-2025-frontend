@@ -1,12 +1,6 @@
-"use client"
-import { Loader } from "@/shared/ui/loader"
-import { useRouter } from "next/navigation"
-import { useEffect } from "react"
+"use server"
+import { redirect } from "next/navigation"
 const MainPage = () => {
-	const router = useRouter()
-	useEffect(() => {
-		router.push("/client")
-	}, [router])
-	return <Loader />
+	redirect("/client")
 }
 export default MainPage
