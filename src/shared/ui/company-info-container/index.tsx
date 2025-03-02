@@ -1,6 +1,6 @@
-import { useState } from "react";
-import styles from "./index.module.css";
-import { Container } from "@/shared/ui/container";
+import { useState } from "react"
+import styles from "./index.module.css"
+import { Container } from "@/shared/ui/container"
 type Loyalty = {
   title: string
   target_usages: number
@@ -12,7 +12,7 @@ type Company = {
   loyalties: Loyalty[]
 }
 type Props = {
-  company: Company;
+  company: Company
 }
 
 export const CompanyInfoContainer = (props: Props) => {
@@ -25,17 +25,23 @@ export const CompanyInfoContainer = (props: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.baseBlock} onClick={toggleOpen}>
-        <img className={styles.icon} src={props.company.picture_url} alt={props.company.name} />
+        <img
+          className={styles.icon}
+          src={props.company.picture_url}
+          alt={props.company.name}
+        />
         <p className={styles.title}>{props.company.name}</p>
         <div className={`${styles.arrow} ${isOpen ? styles.up : ""}`} />
       </div>
       {isOpen && (
         <div className={styles.dropdown}>
           {props.company.loyalties.map((loyalty: Loyalty, index: number) => (
-            <div key={index}>
+            <div key={index} className={styles.promoWrapper}>
               <Container>
                 <h2 className={styles.title}>{loyalty.title}</h2>
-                <p className={styles.desc}>{loyalty.target_usages} из {loyalty.n_count}</p>
+                <p className={styles.desc}>
+                  {loyalty.n_count} из {loyalty.target_usages}
+                </p>
               </Container>
             </div>
           ))}

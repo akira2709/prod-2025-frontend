@@ -1,5 +1,5 @@
 "use client"
-import styles from "./index.module.css";
+import styles from "./index.module.css"
 const ClientPage = () => {
   return (
     <div className={styles.container}>
