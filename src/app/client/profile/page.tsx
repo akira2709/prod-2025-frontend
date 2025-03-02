@@ -4,7 +4,7 @@ import { useFetch } from "@/shared/api/use-fetch"
 import { Loader } from "@/shared/ui/loader"
 import styles from "./index.module.css"
 
-type User = {
+type Client = {
   name: string
   email: string
   date_birthday: string
@@ -12,8 +12,8 @@ type User = {
 }
 
 const ProfilePage = () => {
-  const { data, error, isLoading } = useFetch<User>(
-    ["user"],
+  const { data, error, isLoading } = useFetch<Client>(
+    ["client"],
     {
       endpoint: "/client/profile",
     },

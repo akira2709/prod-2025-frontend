@@ -13,9 +13,9 @@
 }
 .avatar {
   border-radius: 50%;
-  width: 5vw;
-  height: 5vw;
+  aspect-ratio: 1/1;
   object-fit: cover;
+  border: 1px solid #fff;
 }
 .title {
   font-size: 24px;
@@ -28,4 +28,10 @@
   font-weight: 100;
   margin: 0;
   background-color: inherit;
+}
+.nameWrapper {
+  width: 40%;
+}
+.avatarWrapper {
+  width: 10%;
 }

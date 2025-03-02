@@ -22,13 +22,23 @@ const Profile = () => {
   // if (data) console.log(data)
   return (
     <div className={styles.profilePage}>
-      {/* <div className={styles.mainBlock}>
-        <img src={data.url} alt="Лого" className={styles.avatar} />
-        <Container>
-          <h2 className={styles.title}>Имя</h2>
-          <p className={styles.desc}>{data.name}</p>
-        </Container>
-      </div> */}
+      <div className={styles.mainBlock}>
+        <div className={styles.avatarWrapper}>
+          <Container>
+            <img src={"23"} alt="Лого" className={styles.avatar} />
+          </Container>
+        </div>
+        <div className={styles.nameWrapper}>
+          <Container>
+            <h2 className={styles.title}>Имя</h2>
+            <p className={styles.desc}>{"Пятерочка"}</p>
+          </Container>
+        </div>
+      </div>
+      <Container>
+        <h2 className={styles.title}>Ваши акции</h2>
+        <p className={styles.desc}>{"Доступно 5 акций"}</p>
+      </Container>
     </div>
   )
 }

@@ -4,6 +4,9 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
+        <Link href="/partner" className={styles.links}>
+          Главная
+        </Link>
         <Link href="/partner/stats" className={styles.links}>
           Статистика
         </Link>

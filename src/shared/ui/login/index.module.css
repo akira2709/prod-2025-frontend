@@ -16,4 +16,10 @@
   border-radius: 10px;
   align-self: center;
   margin-top: 8px;
+  cursor: pointer;
+  transition: .4s linear;
+}
+.button:hover {
+  background-color: (--grey-300);
+  transform:scale(1.05);
 }
