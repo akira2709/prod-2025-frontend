@@ -15,21 +15,22 @@ const CompaniesPage = () => {
   })
   if (isLoading) return <Loader />
   if (error) return <Error text="Не удалось загрузить список компаний" />
-  if (data) return (
-    <>
-      <h1 className={styles.title}>Компании</h1>
-      <div className={styles.companyList}>
-        {data.map((company: Company) =>
-          <CompanyInfoContainer
-            key={company.companyId}
-            companyId={company.companyId}
-            url={company.iconUrl}
-            title={company.title}
-          />
-        )}
-      </div>
-    </>
-  )
+  if (data)
+    return (
+      <>
+        <h1 className={styles.title}>Компании</h1>
+        <div className={styles.companyList}>
+          {data.map((company: Company) => (
+            <CompanyInfoContainer
+              key={company.companyId}
+              companyId={company.companyId}
+              url={company.iconUrl}
+              title={company.title}
+            />
+          ))}
+        </div>
+      </>
+    )
 }
 
 export default CompaniesPage

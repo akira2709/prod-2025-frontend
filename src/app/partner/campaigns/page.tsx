@@ -1,7 +1,5 @@
 const Campaigns = () => {
-  return (
-    <div>Campaigns</div>
-  )
+  return <div>Campaigns</div>
 }
 
 export default Campaigns

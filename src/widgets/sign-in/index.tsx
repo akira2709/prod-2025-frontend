@@ -46,7 +46,7 @@ export const SignIn = () => {
         changeValue={setPassword}
         placeholder={"Введите пароль"}
         title={"Password"}
-				type={"password"}
+        type={"password"}
         isRequired
       />
     </Login>
