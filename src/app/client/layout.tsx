@@ -1,7 +1,10 @@
 "use client"
 import { Children } from "@/shared/models/chilren.js"
 import { Menu } from "@/widgets/menu"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
+import { useFetch } from "@/shared/api/use-fetch"
+import { useEffect } from "react"
+import { Loader } from "@/shared/ui/loader"
 
 const ClientLayout = ({ children }: Children) => {
   const pathName = usePathname()
@@ -18,7 +21,7 @@ const ClientLayout = ({ children }: Children) => {
   )
   useEffect(() => {
     if (!data && !isLoading && !authRoute) {
-    	console.log(data, authRoute)
+      console.log(data, authRoute)
       router.push("/client/sign-up")
     }
   }, [isLoading])
