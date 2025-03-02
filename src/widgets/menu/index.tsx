@@ -1,5 +1,6 @@
 import Link from "next/link"
 import styles from "./index.module.css"
+import { QrCode } from "lucide-react"
 
 export const Menu = () => {
   return (

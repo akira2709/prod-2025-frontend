@@ -1,7 +1,5 @@
-const index = () => {
-  return (
-    <div>index</div>
-  )
+const Profile = () => {
+  return <div>Profile</div>
 }
 
-export default index
+export default Profile
