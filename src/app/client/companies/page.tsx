@@ -16,7 +16,7 @@ type Company = {
 }
 const CompaniesPage = () => {
   const { data, error, isLoading } = useFetch<Company[]>(["companies"], {
-    endpoint: "/partner/loyalty",
+    endpoint: "/client/loyalty",
   })
   if (isLoading) return <Loader />
   if (error) return <Error text="Не удалось загрузить список компаний" />
