@@ -5,7 +5,7 @@ import { Login } from "@/shared/ui/login"
 import { Fetch } from "@/shared/api/use-fetch"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
-
+import styles from "./index.module.css";
 type SignUpResponse = {
   token: string
 }
@@ -16,7 +16,7 @@ export const SignUp = () => {
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
   const [date, setDate] = useState<string>("")
-  const [gender, setGender] = useState<string>("")
+  const [gender, setGender] = useState<string>("MALE")
 
   const handleSubmit = async () => {
     const data = await Fetch<SignUpResponse>({
@@ -64,9 +64,9 @@ export const SignUp = () => {
         changeValue={setDate}
         type={"date"}
       />
-      <select onChange={handleChangeGender} value={gender}>
-        <option value="FEMALE">женщина</option>
-        <option value="MALE">мужчина</option>
+      <select onChange={handleChangeGender} value={gender} className={styles.selector}>
+        <option value="FEMALE" className={styles.option}>женщина</option>
+        <option value="MALE" className={styles.option}>мужчина</option>
       </select>
     </Login>
   )

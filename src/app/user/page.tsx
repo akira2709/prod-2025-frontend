@@ -21,7 +21,7 @@ export default function UserPage() {
   }, [isLoading])
   return (
     <div>
-      <h1>Добро пожаловать в LoyalT!</h1>
+      <h1 style={{ textAlign: "center" }}>Добро пожаловать в LoyalT!</h1>
     </div>
   )
 }

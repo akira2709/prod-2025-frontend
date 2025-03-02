@@ -1,0 +1,10 @@
+.selector {
+    border-radius: 10px;
+    background-color: var(--grey-400);
+    padding: 12px 4px;
+    margin-top: 10px;
+    color: var(--text-slate);
+}
+.option {
+    color: var(--text-slate);
+}
