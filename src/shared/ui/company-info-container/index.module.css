@@ -41,7 +41,7 @@
 }
 .dropdown {
   padding: 10px;
-  background-color: transparent !important;
+  background-color: transparent;
   border-radius: 10px;
   margin-top: 10px;
   display: flex;
@@ -51,8 +51,14 @@
   animation: cubic-bezier(1, 0, 0, 1);
 }
 .promoWrapper {
-  background-color: transparent !important;
+  background: transparent;
 }
 .desc {
-  background-color: transparent !important;
+  background: transparent;
+}
+.arrowWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
