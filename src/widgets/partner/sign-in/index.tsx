@@ -27,7 +27,7 @@ export const SignIn = () => {
 		if (data) {
       localStorage.setItem("token", data.token)
       toast.success("Вы успешно вошли!")
-      router.push("/client")
+      router.push("/partner")
       return
     }
     toast.error(error?.response.data.detail)
