@@ -1,19 +1,47 @@
 "use client"
-import { useState } from "react"
+import { ChangeEvent, useState } from "react"
 import { Input } from "@/shared/ui/input"
 import { Login } from "@/shared/ui/login"
+import { Fetch } from "@/shared/api/use-fetch"
+import { toast } from "sonner"
+import { useRouter } from "next/navigation"
+
+type SignUpResponse = {
+	token: string
+}
 
 export const SignUp = () => {
+  const router = useRouter()
   const [name, setName] = useState<string>("")
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
   const [date, setDate] = useState<string>("")
   const [gender, setGender] = useState<string>("")
 
-  const handleSubmit = () => {
-    // const { data, error } =
-  }
 
+  const handleSubmit = async () => {
+		const data = await Fetch<SignUpResponse>({
+			endpoint: "/client/auth/sign-up",
+			method: "post",
+			data: {
+				name: name,
+				email: email,
+				password: password,
+				date_birthday: date,
+				gender: gender
+			}
+		})
+		if (data) {
+			localStorage.setItem("token", data.token)
+			toast.success("Вы зарегестрированы!")
+			router.push("/user")
+			return
+		}
+		toast.error("Упс что-то пошло не так...")
+  }
+  const handleChangeGender = (event: ChangeEvent<HTMLSelectElement>) => {
+  	setGender(event.target.value)
+  }
   return (
     <Login title={"sign up"} submit={handleSubmit}>
       <Input
@@ -32,11 +60,15 @@ export const SignUp = () => {
         changeValue={setPassword}
       />
       <Input
-        placeholder={"Введите ваш дату рождения"}
+        placeholder={"ГГГГ-ММ-ДД"}
         value={date}
         changeValue={setDate}
         type={"date"}
       />
+      <select onChange={handleChangeGender} value={gender}>
+     		<option value="FEMALE">женщина</option>
+     		<option value="MALE">мужчина</option>
+      </select>
     </Login>
   )
 }

@@ -51,7 +51,7 @@ export const Input = memo((props: Props) => {
         value={props.value}
         mask={
           props.type === "date"
-            ? "dd / mm / yyyy"
+            ? "yyyy-mm-dd"
             : props.type === "number"
               ? "0".repeat(100)
               : "*".repeat(100)

@@ -3,7 +3,7 @@ import axios from "axios"
 export const API_URL = "https://prod-team-19-n7cvsvtm.final.prodcontest.ru/api"
 
 export const httpClient = axios.create({
-  withCredentials: true,
+  withCredentials: false,
   baseURL: API_URL,
 })
 
