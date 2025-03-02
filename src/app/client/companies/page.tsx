@@ -4,6 +4,7 @@ import { Error } from "@/shared/ui/error"
 import { CompanyInfoContainer } from "@/shared/ui/company-info-container"
 import { useFetch } from "@/shared/api/use-fetch"
 import { Loader } from "@/shared/ui/loader"
+import { toast } from "sonner"
 type Loyalty = {
   title: string
   target_usages: number
@@ -17,9 +18,20 @@ type Company = {
 const CompaniesPage = () => {
   const { data, error, isLoading } = useFetch<Company[]>(["companies"], {
     endpoint: "/client/loyalty",
+  }, {
+	  refetchOnWindowFocus: false,
+	  refetchOnMount: false,
+	  refetchInterval: false,
+	  staleTime: 5 * 60 * 1000,
+	  cacheTime: 5 * 60 * 1000,
+	  retry: false
   })
   if (isLoading) return <Loader />
-  if (error) return <Error text="Не удалось загрузить список компаний" />
+	if (error) {
+		const message = error.response.data.detail
+		toast.error(message)
+		return <span>{ message }</span>
+	}
   if (data)
     return (
       <div className={styles.container}>

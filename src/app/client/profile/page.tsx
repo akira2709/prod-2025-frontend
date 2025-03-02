@@ -23,6 +23,7 @@ const ProfilePage = () => {
       refetchInterval: false,
       staleTime: 5 * 60 * 1000,
       cacheTime: 5 * 60 * 1000,
+      retry: false
     },
   )
   if (isLoading) return <Loader />

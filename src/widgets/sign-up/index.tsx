@@ -19,7 +19,7 @@ export const SignUp = () => {
   const [gender, setGender] = useState<string>("MALE")
 
   const handleSubmit = async () => {
-    const data = await Fetch<SignUpResponse>({
+    const { data, error } = await Fetch<SignUpResponse>({
       endpoint: "/client/auth/sign-up",
       method: "post",
       data: {
@@ -36,7 +36,7 @@ export const SignUp = () => {
       router.push("/client")
       return
     }
-    toast.error("Упс что-то пошло не так...")
+    toast.error(error?.response.data.detail)
   }
   const handleChangeGender = (event: ChangeEvent<HTMLSelectElement>) => {
     setGender(event.target.value)

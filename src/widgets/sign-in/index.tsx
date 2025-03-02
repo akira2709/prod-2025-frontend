@@ -16,7 +16,7 @@ export const SignIn = () => {
   const [password, setPassword] = useState<string>("")
 
   const handleSubmit = async () => {
-    const data = await Fetch<SignInResponse>({
+    const { data, error } = await Fetch<SignInResponse>({
       endpoint: "/client/auth/sign-in",
       method: "post",
       data: {
@@ -24,13 +24,13 @@ export const SignIn = () => {
         password,
       },
     })
-    if (data) {
+		if (data) {
       localStorage.setItem("token", data.token)
       toast.success("Вы успешно вошли!")
       router.push("/client")
       return
     }
-    toast.error("Неверный email или пароль")
+    toast.error(error?.response.data.detail)
   }
   return (
     <Login title={"sign in"} submit={handleSubmit}>
