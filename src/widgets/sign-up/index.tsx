@@ -57,6 +57,7 @@ export const SignUp = () => {
         placeholder={"Введите пароль"}
         value={password}
         changeValue={setPassword}
+        type={"password"}
       />
       <Input
         placeholder={"ГГГГ-ММ-ДД"}
