@@ -30,7 +30,7 @@ const PartnerLayout = ({ children }: Children) => {
     if ((!data || isLoading) && !authRoute) return <Loader />
   return (
     <>
-      {<Header />}
+      {!authRoute && <Header />}
       <div className={styles.containerChildren}>{children}</div>
     </>
   )
