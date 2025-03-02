@@ -1,10 +1,7 @@
 "use client"
 import { Children } from "@/shared/models/chilren.js"
 import { Menu } from "@/widgets/menu"
-import { usePathname, useRouter } from "next/navigation"
-import { useFetch } from "@/shared/api/use-fetch"
-import { Loader } from "@/shared/ui/loader"
-import { useEffect } from "react"
+import { usePathname } from "next/navigation"
 
 const ClientLayout = ({ children }: Children) => {
   const pathName = usePathname()
