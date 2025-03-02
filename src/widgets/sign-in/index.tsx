@@ -7,26 +7,26 @@ import { useState } from "react"
 import { toast } from "sonner"
 
 type SignInResponse = {
-	token: string
+  token: string
 }
 
 export const SignIn = () => {
-	const router = useRouter()
+  const router = useRouter()
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
 
   const handleSubmit = async () => {
     const data = await Fetch<SignInResponse>({
-    	endpoint: "/client/auth/sign-in",
-     	method: "post",
+      endpoint: "/client/auth/sign-in",
+      method: "post",
       data: {
-      	email,
-       	password
-      }
+        email,
+        password,
+      },
     })
     if (data) {
-    	localStorage.setItem("token", data.token)
-     	toast.success("Вы успешно вошли!")
+      localStorage.setItem("token", data.token)
+      toast.success("Вы успешно вошли!")
       router.push("/user")
       return
     }

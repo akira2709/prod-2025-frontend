@@ -13,14 +13,17 @@ const RootDefault = ({ children }: Children) => {
   return (
     <html lang={"en"} data-theme={"dark"}>
       <body>
-				<QueryProvider>
-       		{children}
-					<Toaster position={"top-right"} toastOptions={{
-						style: {
-							background: "var(--dark)"
-						}
-					}}/>
-       	</QueryProvider>
+        <QueryProvider>
+          {children}
+          <Toaster
+            position={"top-right"}
+            toastOptions={{
+              style: {
+                background: "var(--dark)",
+              },
+            }}
+          />
+        </QueryProvider>
       </body>
     </html>
   )

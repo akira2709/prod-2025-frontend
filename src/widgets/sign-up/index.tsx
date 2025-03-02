@@ -7,7 +7,7 @@ import { toast } from "sonner"
 import { useRouter } from "next/navigation"
 
 type SignUpResponse = {
-	token: string
+  token: string
 }
 
 export const SignUp = () => {
@@ -18,29 +18,28 @@ export const SignUp = () => {
   const [date, setDate] = useState<string>("")
   const [gender, setGender] = useState<string>("")
 
-
   const handleSubmit = async () => {
-		const data = await Fetch<SignUpResponse>({
-			endpoint: "/client/auth/sign-up",
-			method: "post",
-			data: {
-				name: name,
-				email: email,
-				password: password,
-				date_birthday: date,
-				gender: gender
-			}
-		})
-		if (data) {
-			localStorage.setItem("token", data.token)
-			toast.success("Вы зарегестрированы!")
-			router.push("/user")
-			return
-		}
-		toast.error("Упс что-то пошло не так...")
+    const data = await Fetch<SignUpResponse>({
+      endpoint: "/client/auth/sign-up",
+      method: "post",
+      data: {
+        name: name,
+        email: email,
+        password: password,
+        date_birthday: date,
+        gender: gender,
+      },
+    })
+    if (data) {
+      localStorage.setItem("token", data.token)
+      toast.success("Вы зарегестрированы!")
+      router.push("/user")
+      return
+    }
+    toast.error("Упс что-то пошло не так...")
   }
   const handleChangeGender = (event: ChangeEvent<HTMLSelectElement>) => {
-  	setGender(event.target.value)
+    setGender(event.target.value)
   }
   return (
     <Login title={"sign up"} submit={handleSubmit}>
@@ -66,8 +65,8 @@ export const SignUp = () => {
         type={"date"}
       />
       <select onChange={handleChangeGender} value={gender}>
-     		<option value="FEMALE">женщина</option>
-     		<option value="MALE">мужчина</option>
+        <option value="FEMALE">женщина</option>
+        <option value="MALE">мужчина</option>
       </select>
     </Login>
   )
