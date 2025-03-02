@@ -8,7 +8,13 @@ const QRCodePage = () => {
   const { Canvas } = useQRCode()
   const { data, error, isLoading } = useFetch<string>(["qrcode"], {
     endpoint: "/client/qr",
-  })
+	}, {
+ 		refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchInterval: false,
+    staleTime: 5 * 60 * 1000,
+    cacheTime: 10 * 60 * 1000,
+	})
   if (isLoading) return <Loader />
   if (error) return <span>error</span>
   if (data) {

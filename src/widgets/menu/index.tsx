@@ -4,7 +4,7 @@ import styles from "./index.module.css"
 export const Menu = () => {
   return (
     <nav className={styles.menu}>
-      <Link className={styles.link} href={"/user/promo"}>
+      <Link className={styles.link} href={"/user/companies"}>
         Промокоды
       </Link>
       <Link className={styles.link} href={"/user/qrcode"}>
