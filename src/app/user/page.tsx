@@ -2,7 +2,7 @@
 import { useFetch } from "@/shared/api/use-fetch"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
-
+import styles from "./index.module.css";
 export default function UserPage() {
   const router = useRouter()
   const { data, isLoading } = useFetch(
@@ -20,8 +20,8 @@ export default function UserPage() {
     }
   }, [isLoading])
   return (
-    <div>
-      <h1 style={{ textAlign: "center" }}>Добро пожаловать в LoyalT!</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Добро пожаловать в LoyalT!</h1>
     </div>
   )
 }

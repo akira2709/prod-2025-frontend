@@ -9,7 +9,7 @@ export const Menu = () => {
         Промокоды
       </Link>
       <Link className={styles.link} id={styles.qr} href={"/user/qrcode"}>
-        <QrCode />
+        QR
       </Link>
       <Link className={styles.link} href={"/user/profile"}>
         Профиль
