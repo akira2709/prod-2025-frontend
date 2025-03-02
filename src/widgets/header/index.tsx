@@ -1,23 +1,24 @@
 import styles from "./index.module.css"
+import Link from "next/link"
 export const Header = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <a href="/partner/stats" className={styles.links}>
+        <Link href="/partner/stats" className={styles.links}>
           Статистика
-        </a>
-        <a href="/partner/campaigns" className={styles.links}>
+        </Link>
+        <Link href="/partner/campaigns" className={styles.links}>
           Кампании
-        </a>
+        </Link>
         <div className={styles.profile_link}>
           <img
             src="https://source.unsplash.com/random/40x40"
             alt="Лого"
             className={styles.logo}
           />
-          <a href="/partner/profile" className={styles.links}>
+          <Link href="/partner/profile" className={styles.links}>
             Профиль
-          </a>
+          </Link>
         </div>
       </nav>
     </header>

@@ -2,7 +2,7 @@
 import { useFetch } from "@/shared/api/use-fetch"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
-import styles from "./index.module.css";
+import styles from "./index.module.css"
 export default function UserPage() {
   const router = useRouter()
   const { data, isLoading } = useFetch(
