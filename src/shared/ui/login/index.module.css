@@ -23,3 +23,9 @@
   background-color: (--grey-300);
   transform: scale(1.05);
 }
+.redirect_wrapper {
+  padding: 8px;
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+}

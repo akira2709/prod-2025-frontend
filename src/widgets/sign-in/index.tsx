@@ -33,7 +33,8 @@ export const SignIn = () => {
     toast.error(error?.response.data.detail)
   }
   return (
-    <Login title={"sign in"} submit={handleSubmit}>
+    <>
+    <Login title={"Вход"} submit={handleSubmit} redirectUrl="client" redirectTitle="Регистрация" redirectType="sign-up"> {/*Костыль, пофиксить */}
       <Input
         value={email}
         changeValue={setEmail}
@@ -50,5 +51,6 @@ export const SignIn = () => {
         isRequired
       />
     </Login>
+    </>
   )
 }
