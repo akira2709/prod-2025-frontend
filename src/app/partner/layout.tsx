@@ -10,24 +10,24 @@ import { Loader } from "@/shared/ui/loader"
 
 type Role = { role: null | "client" | "partner" }
 const PartnerLayout = ({ children }: Children) => {
-    const pathName = usePathname()
-    const authRoute = ["/partner/sign-in", "/partner/sign-up"].includes(pathName)
-    const router = useRouter()
-    const { data, isLoading } = useFetch<Role>(
-      ["tokenValid"],
-      {
-        endpoint: "/get/role",
-      },
-      {
-        retry: false,
-      },
-    )
-    useEffect(() => {
-      if (data?.role === null && !isLoading && !authRoute) {
-        router.push("/partner/sign-up")
-      }
-    }, [isLoading])
-    if ((!data || isLoading) && !authRoute) return <Loader />
+  const pathName = usePathname()
+  const authRoute = ["/partner/sign-in", "/partner/sign-up"].includes(pathName)
+  const router = useRouter()
+  const { data, isLoading } = useFetch<Role>(
+    ["tokenValid"],
+    {
+      endpoint: "/get/role",
+    },
+    {
+      retry: false,
+    },
+  )
+  useEffect(() => {
+    if (data?.role === null && !isLoading && !authRoute) {
+      router.push("/partner/sign-up")
+    }
+  }, [isLoading])
+  if ((!data || isLoading) && !authRoute) return <Loader />
   return (
     <>
       {!authRoute && <Header />}

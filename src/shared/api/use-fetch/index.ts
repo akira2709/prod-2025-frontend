@@ -17,11 +17,11 @@ const fetchData = async <T>({
 }
 
 type TypedError = {
-	response: {
-		data: {
-			detail: string
-		}
-	}
+  response: {
+    data: {
+      detail: string
+    }
+  }
 }
 
 export const useFetch = <T, E = TypedError>(
@@ -37,8 +37,8 @@ export const useFetch = <T, E = TypedError>(
 }
 
 type FetchResult<T> = {
-	data: T | null,
-	error: TypedError | null
+  data: T | null
+  error: TypedError | null
 }
 
 export const Fetch = async <T>({
@@ -46,12 +46,12 @@ export const Fetch = async <T>({
   method = "get",
   data,
 }: ResponseParams): Promise<FetchResult<T>> => {
-	const result: FetchResult<T> = { data: null, error: null}
+  const result: FetchResult<T> = { data: null, error: null }
   try {
     const response = await httpClient[method]<T>(endpoint, data)
     result.data = response.data
   } catch (error) {
-  	result.error = error as TypedError
+    result.error = error as TypedError
   }
   return result
 }

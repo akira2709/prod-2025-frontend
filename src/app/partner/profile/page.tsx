@@ -3,8 +3,13 @@ import { Container } from "@/shared/ui/container"
 import { useFetch } from "@/shared/api/use-fetch"
 import { Loader } from "@/shared/ui/loader"
 import styles from "./index.module.css"
+type Partner = {
+  email: string
+  name: string
+  picture_url: string
+}
 const Profile = () => {
-  const { data, error, isLoading } = useFetch(
+  const partnerQuery = useFetch<Partner>(
     ["partner"],
     {
       endpoint: "/partner/profile",
@@ -17,30 +22,34 @@ const Profile = () => {
       cacheTime: 5 * 60 * 1000,
     },
   )
-  if (isLoading) return <Loader />
-  if (error) return <span>error</span>
-  if (data) console.log(data)
-  return (
-    <div className={styles.profilePage}>
-      <div className={styles.mainBlock}>
-        <div className={styles.avatarWrapper}>
-          <Container>
-            <img src={"23"} alt="Лого" className={styles.avatar} />
-          </Container>
+  if (partnerQuery.isLoading) return <Loader />
+  if (partnerQuery.error) return <span>error</span>
+  if (partnerQuery.data)
+    return (
+      <div className={styles.profilePage}>
+        <div className={styles.mainBlock}>
+          <div className={styles.avatarWrapper}>
+            <Container>
+              <img
+                src={partnerQuery.data.picture_url}
+                alt="Лого"
+                className={styles.avatar}
+              />
+            </Container>
+          </div>
+          <div className={styles.nameWrapper}>
+            <Container>
+              <h2 className={styles.title}>Имя</h2>
+              <p className={styles.desc}>{partnerQuery.data.name}</p>
+            </Container>
+          </div>
         </div>
-        <div className={styles.nameWrapper}>
-          <Container>
-            <h2 className={styles.title}>Имя</h2>
-            <p className={styles.desc}>{"Пятерочка"}</p>
-          </Container>
-        </div>
+        <Container>
+          <h2 className={styles.title}>Email</h2>
+          <p className={styles.desc}>{partnerQuery.data.email}</p>
+        </Container>
       </div>
-      <Container>
-        <h2 className={styles.title}>Ваши акции</h2>
-        <p className={styles.desc}>{"Доступно 5 акций"}</p>
-      </Container>
-    </div>
-  )
+    )
 }
 
 export default Profile

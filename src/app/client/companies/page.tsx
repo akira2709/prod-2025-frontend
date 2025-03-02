@@ -16,22 +16,26 @@ type Company = {
   loyalties: Loyalty[]
 }
 const CompaniesPage = () => {
-  const { data, error, isLoading } = useFetch<Company[]>(["companies"], {
-    endpoint: "/client/loyalty",
-  }, {
-	  refetchOnWindowFocus: false,
-	  refetchOnMount: false,
-	  refetchInterval: false,
-	  staleTime: 5 * 60 * 1000,
-	  cacheTime: 5 * 60 * 1000,
-	  retry: false
-  })
+  const { data, error, isLoading } = useFetch<Company[]>(
+    ["companies"],
+    {
+      endpoint: "/client/loyalty",
+    },
+    {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchInterval: false,
+      staleTime: 5 * 60 * 1000,
+      cacheTime: 5 * 60 * 1000,
+      retry: false,
+    },
+  )
   if (isLoading) return <Loader />
-	if (error) {
-		const message = error.response.data.detail
-		toast.error(message)
-		return <span>{ message }</span>
-	}
+  if (error) {
+    const message = error.response.data.detail
+    toast.error(message)
+    return <span>{message}</span>
+  }
   if (data)
     return (
       <div className={styles.container}>

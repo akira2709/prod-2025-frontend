@@ -42,7 +42,13 @@ export const SignUp = () => {
     setGender(event.target.value)
   }
   return (
-    <Login title={"Регистрация"} submit={handleSubmit} redirectUrl="client" redirectTitle="Вход" redirectType="sign-in">
+    <Login
+      title={"Регистрация"}
+      submit={handleSubmit}
+      redirectUrl="client"
+      redirectTitle="Вход"
+      redirectType="sign-in"
+    >
       <Input
         placeholder={"Введите ваше имя"}
         value={name}

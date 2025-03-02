@@ -1,0 +1,18 @@
+.wrapper {
+  padding: 24px;
+}
+.loyalties_wrapper {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.title {
+  background: transparent;
+}
+.desc {
+  background: transparent;
+}
+.container_wrapper {
+  width: 100%;
+}

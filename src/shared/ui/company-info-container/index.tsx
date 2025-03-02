@@ -17,13 +17,13 @@ type Props = {
 
 export const CompanyInfoContainer = (props: Props) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleCount, setVisibleCount] = useState(3)
   const toggleOpen = () => {
     setIsOpen((prev) => !prev)
     if (!isOpen) setVisibleCount(3)
   }
   const showMore = () => {
-    setVisibleCount(prev => prev + 3);
+    setVisibleCount((prev) => prev + 3)
   }
   const isMoreLoyalties = visibleCount < props.company.loyalties.length
 
@@ -40,20 +40,21 @@ export const CompanyInfoContainer = (props: Props) => {
       </div>
       {isOpen && (
         <div className={styles.dropdown}>
-          {props.company.loyalties.slice(0, visibleCount).map((loyalty, index) => (
-            <div key={index} className={styles.promoWrapper}>
-              <Container>
-                <h2 className={styles.title}>{loyalty.title}</h2>
-                <p className={styles.desc}>
-                  {loyalty.n_count} из {loyalty.target_usages}
-                </p>
-              </Container>
-            </div>
-          ))}
+          {props.company.loyalties
+            .slice(0, visibleCount)
+            .map((loyalty, index) => (
+              <div key={index} className={styles.promoWrapper}>
+                <Container>
+                  <h2 className={styles.title}>{loyalty.title}</h2>
+                  <p className={styles.desc}>
+                    {loyalty.n_count} из {loyalty.target_usages}
+                  </p>
+                </Container>
+              </div>
+            ))}
           {isMoreLoyalties && (
             <div className={styles.arrowWrapper}>
-              <div className={styles.arrow} onClick={showMore}>
-              </div>
+              <div className={styles.arrow} onClick={showMore}></div>
             </div>
           )}
         </div> //Зарефакторить

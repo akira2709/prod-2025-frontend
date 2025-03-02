@@ -1,13 +1,13 @@
 "use client"
 import styles from "./index.module.css"
-import Link from "next/link";
+import Link from "next/link"
 type Props = {
-  children: React.ReactNode;
-  submit: () => void;
-  title: string;
-  redirectUrl: string;
-  redirectTitle: string;
-  redirectType: "sign-in" | "sign-up";
+  children: React.ReactNode
+  submit: () => void
+  title: string
+  redirectUrl: string
+  redirectTitle: string
+  redirectType: "sign-in" | "sign-up"
 }
 
 export const Login = (props: Props) => {
@@ -19,7 +19,9 @@ export const Login = (props: Props) => {
           {props.title}
         </button>
         <div className={styles.redirect_wrapper}>
-          <Link href={`/${props.redirectUrl}/${props.redirectType}`}>{ props.redirectTitle }</Link>
+          <Link href={`/${props.redirectUrl}/${props.redirectType}`}>
+            {props.redirectTitle}
+          </Link>
         </div>
       </div>
     </div>

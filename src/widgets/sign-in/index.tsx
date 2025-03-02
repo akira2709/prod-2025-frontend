@@ -24,7 +24,7 @@ export const SignIn = () => {
         password,
       },
     })
-		if (data) {
+    if (data) {
       localStorage.setItem("token", data.token)
       toast.success("Вы успешно вошли!")
       router.push("/client")
@@ -34,23 +34,31 @@ export const SignIn = () => {
   }
   return (
     <>
-    <Login title={"Вход"} submit={handleSubmit} redirectUrl="client" redirectTitle="Регистрация" redirectType="sign-up"> {/*Костыль, пофиксить */}
-      <Input
-        value={email}
-        changeValue={setEmail}
-        placeholder={"Введите email"}
-        title={"Email"}
-        isRequired
-      />
-      <Input
-        value={password}
-        changeValue={setPassword}
-        placeholder={"Введите пароль"}
-        title={"Password"}
-        type={"password"}
-        isRequired
-      />
-    </Login>
+      <Login
+        title={"Вход"}
+        submit={handleSubmit}
+        redirectUrl="client"
+        redirectTitle="Регистрация"
+        redirectType="sign-up"
+      >
+        {" "}
+        {/*Костыль, пофиксить */}
+        <Input
+          value={email}
+          changeValue={setEmail}
+          placeholder={"Введите email"}
+          title={"Email"}
+          isRequired
+        />
+        <Input
+          value={password}
+          changeValue={setPassword}
+          placeholder={"Введите пароль"}
+          title={"Password"}
+          type={"password"}
+          isRequired
+        />
+      </Login>
     </>
   )
 }

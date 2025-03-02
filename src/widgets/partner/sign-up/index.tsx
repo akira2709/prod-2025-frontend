@@ -34,7 +34,13 @@ export const SignUp = () => {
     toast.error(error?.response.data.detail)
   }
   return (
-    <Login title={"Регистрация"} submit={handleSubmit} redirectUrl="partner" redirectTitle="Вход" redirectType="sign-in">
+    <Login
+      title={"Регистрация"}
+      submit={handleSubmit}
+      redirectUrl="partner"
+      redirectTitle="Вход"
+      redirectType="sign-in"
+    >
       <Input
         placeholder={"Введите ваше имя"}
         value={name}
