@@ -13,12 +13,14 @@ type Props = {
 export const Login = (props: Props) => {
   return (
     <div className={styles.login}>
-      {props.children}
-      <button onClick={props.submit} className={styles.button}>
-        {props.title}
-      </button>
-      <div className={styles.redirect_wrapper}>
-        <Link href={`/${props.redirectUrl}/${props.redirectType}`}>{ props.redirectTitle }</Link>
+      <div className={styles.container}>
+        {props.children}
+        <button onClick={props.submit} className={styles.button}>
+          {props.title}
+        </button>
+        <div className={styles.redirect_wrapper}>
+          <Link href={`/${props.redirectUrl}/${props.redirectType}`}>{ props.redirectTitle }</Link>
+        </div>
       </div>
     </div>
   )
