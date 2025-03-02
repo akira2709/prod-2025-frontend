@@ -6,10 +6,13 @@ type Loyalty = {
   target_usages: number
   n_count: number
 }
-type Props = {
+type Company = {
   picture_url: string
   name: string
   loyalties: Loyalty[]
+}
+type Props = {
+  company: Company;
 }
 
 export const CompanyInfoContainer = (props: Props) => {
@@ -22,13 +25,13 @@ export const CompanyInfoContainer = (props: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.baseBlock} onClick={toggleOpen}>
-        <img className={styles.icon} src={props.picture_url} alt={props.name} />
-        <p className={styles.title}>{props.name}</p>
+        <img className={styles.icon} src={props.company.picture_url} alt={props.company.name} />
+        <p className={styles.title}>{props.company.name}</p>
         <div className={`${styles.arrow} ${isOpen ? styles.up : ""}`} />
       </div>
       {isOpen && (
         <div className={styles.dropdown}>
-          {props.loyalties.map((loyalty: Loyalty, index: number) => (
+          {props.company.loyalties.map((loyalty: Loyalty, index: number) => (
             <div key={index}>
               <Container>
                 <h2 className={styles.title}>{loyalty.title}</h2>
