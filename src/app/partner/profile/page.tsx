@@ -40,13 +40,14 @@ const Profile = () => {
       <div className={styles.profilePage}>
         <div className={styles.mainBlock}>
           <div className={styles.avatarWrapper}>
-            <Container>
+            <div className={styles.avatar}>
               <Image
                 src={partnerQuery.data.picture_url}
                 alt="Лого"
-                className={styles.avatar}
+                width={50}
+                height={50}
               />
-            </Container>
+            </div>
           </div>
           <div className={styles.nameWrapper}>
             <Container>

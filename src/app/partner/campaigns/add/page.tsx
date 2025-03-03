@@ -10,7 +10,7 @@ const CreateLoyalty = () => {
   const router = useRouter()
   const [title, setTitle] = useState<string>("")
   const [targetUsages, setTargetUsages] = useState<string>("")
-  
+
   const handleSubmit = async () => {
     if (!title || !targetUsages) {
       toast.error("Все поля должны быть заполнены")
@@ -19,7 +19,7 @@ const CreateLoyalty = () => {
     const { data, error } = await Fetch<{ status: string }>({
       endpoint: "/partner/create-loyalty",
       method: "post",
-      data: { title, target_usages: Number(targetUsages) }
+      data: { title, target_usages: Number(targetUsages) },
     })
     if (error) {
       toast.error(error.response.data.detail)
@@ -52,4 +52,4 @@ const CreateLoyalty = () => {
     </div>
   )
 }
-export default CreateLoyalty;
+export default CreateLoyalty
