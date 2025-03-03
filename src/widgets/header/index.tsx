@@ -7,6 +7,9 @@ export const Header = () => {
         <Link href="/partner" className={styles.links}>
           Главная
         </Link>
+        <Link href="/scanner" className={styles.links}>
+          Сканировать
+        </Link>
         <Link href="/partner/stats" className={styles.links}>
           Статистика
         </Link>
