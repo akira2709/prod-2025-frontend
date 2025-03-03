@@ -1,0 +1,23 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.title {
+    text-align: center;
+}
+.promoWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    gap: 20px;
+}
+.buttonGroup {
+    width: 100%;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
