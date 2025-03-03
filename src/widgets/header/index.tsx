@@ -19,6 +19,8 @@ export const Header = () => {
         </Link>
         <div className={styles.profile_link}>
           <Image
+            width={40}
+            height={40}
             src="https://source.unsplash.com/random/40x40"
             alt="Лого"
             className={styles.logo}
