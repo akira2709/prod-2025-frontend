@@ -33,7 +33,7 @@ const PartnerLayout = ({ children }: Children) => {
     if (data?.role === "CLIENT" && !authRoute) {
       router.push("/client")
     }
-  }, [isLoading])
+  }, [isLoading, authRoute, data?.role, router])
   if (isLoading && !authRoute) return <Loader />
   return (
     <>

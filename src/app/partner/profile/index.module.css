@@ -35,3 +35,12 @@
 .avatarWrapper {
   width: 10%;
 }
+.logout {
+  width: 40vw;
+  height: 40px;
+  border: 2px var(--grey-200) solid;
+  border-radius: 10px;
+  background: darkred;
+  justify-self: center;
+  align-self: center;
+}
