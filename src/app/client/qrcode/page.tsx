@@ -15,8 +15,6 @@ const QRCodePage = () => {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
       refetchInterval: false,
-      staleTime: 5 * 60 * 1000,
-      cacheTime: 10 * 60 * 1000,
       retry: false,
     },
   )

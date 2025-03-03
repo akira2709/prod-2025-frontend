@@ -6,7 +6,7 @@ import { useFetch } from "@/shared/api/use-fetch"
 import { useEffect } from "react"
 import { Loader } from "@/shared/ui/loader"
 
-type Role = { role: null | "client" | "partner" }
+type Role = { role: null | "CLIENT" | "PARTNER" }
 
 const ClientLayout = ({ children }: Children) => {
   const pathName = usePathname()
@@ -22,11 +22,16 @@ const ClientLayout = ({ children }: Children) => {
     },
   )
   useEffect(() => {
-    if (data?.role === null && !isLoading && !authRoute) {
+    if ((data?.role === null && !isLoading) && !authRoute) {
       router.push("/client/sign-up")
     }
+    if ((data?.role === "PARTNER" && !isLoading) && !authRoute) {
+    	router.push("/partner")
+    }
   }, [isLoading])
-  if ((!data || isLoading) && !authRoute) return <Loader />
+	if (isLoading && !authRoute) {
+		return <Loader />
+	}
   return (
     <>
       {children}

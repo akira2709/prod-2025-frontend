@@ -3,6 +3,8 @@ import { Container } from "@/shared/ui/container"
 import { useFetch } from "@/shared/api/use-fetch"
 import { Loader } from "@/shared/ui/loader"
 import styles from "./index.module.css"
+import { useRouter } from "next/navigation"
+import { useQueryClient } from "@tanstack/react-query"
 
 type Client = {
   name: string
@@ -12,6 +14,8 @@ type Client = {
 }
 
 const ProfilePage = () => {
+	const router = useRouter()
+	const queryClient = useQueryClient()
   const { data, error, isLoading } = useFetch<Client>(
     ["client"],
     {
@@ -20,12 +24,14 @@ const ProfilePage = () => {
     {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
-      refetchInterval: false,
-      staleTime: 5 * 60 * 1000,
-      cacheTime: 5 * 60 * 1000,
-      retry: false,
+      refetchInterval: false
     },
   )
+  const logout = () => {
+   	router.push("/")
+  	localStorage.removeItem("token")
+   	queryClient.invalidateQueries({queryKey: ["client"]})
+  }
   if (isLoading) return <Loader />
   if (error) return <span>error</span>
   if (data)
@@ -50,6 +56,7 @@ const ProfilePage = () => {
             {data.gender === "MALE" ? "Мужской" : "Женский"}
           </p>
         </Container>
+				<button onClick={logout} className={styles.logout}>Выйти</button>
       </div>
     )
 }
