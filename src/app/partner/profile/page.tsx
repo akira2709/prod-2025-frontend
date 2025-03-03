@@ -3,7 +3,7 @@ import { Container } from "@/shared/ui/container"
 import { useFetch } from "@/shared/api/use-fetch"
 import { Loader } from "@/shared/ui/loader"
 import styles from "./index.module.css"
-import { useRouter } from "next/navigation"
+import { redirect } from "next/navigation"
 import { useQueryClient } from "@tanstack/react-query"
 import React from "react"
 import { Fetch } from "@/shared/api/use-fetch"
@@ -21,7 +21,6 @@ type Everything = {
   // picture_url: string
 }
 const Profile = () => {
-  const router = useRouter()
   const queryClient = useQueryClient()
   const partnerId = localStorage.getItem("partner-id")
   const partnerQuery = useFetch<Partner>(
@@ -63,10 +62,10 @@ const Profile = () => {
       toast.error("Пожалуйста, выберите изображение")
     }
   }
-  const logout = () => {
+  const logout = async () => {
     localStorage.removeItem("token")
     queryClient.invalidateQueries({ queryKey: ["partner"] })
-    router.push("/partner")
+    redirect("/partner")
   }
   if (partnerQuery.isLoading) return <Loader />
   if (partnerQuery.error) return <span>Ошибка загрузки профиля</span>
