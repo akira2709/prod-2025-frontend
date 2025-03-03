@@ -5,7 +5,7 @@ import { toast } from "sonner"
 import { Fetch } from "@/shared/api/use-fetch"
 import { Input } from "@/shared/ui/input"
 import styles from "./index.module.css"
-import Link from "next/link";
+import Link from "next/link"
 const CreateLoyalty = () => {
   const router = useRouter()
   const [title, setTitle] = useState<string>("")
@@ -16,18 +16,19 @@ const CreateLoyalty = () => {
       toast.error("Все поля должны быть заполнены")
       return
     }
-    console.log({title, target_usages: Number(targetUsages)})
     const { data, error } = await Fetch<{ status: string }>({
       endpoint: "/partner/create-loyalty",
       method: "post",
       data: { title, target_usages: Number(targetUsages) },
     })
+    console.log(data)
     if (error) {
       toast.error(error.response.data.detail)
       return
     }
     toast.success("Программа лояльности добавлена!")
     router.push("/partner/campaigns")
+    router.refresh()
   }
   return (
     <div className={styles.container}>

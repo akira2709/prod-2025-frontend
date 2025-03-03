@@ -11,10 +11,7 @@ import { Loader } from "@/shared/ui/loader"
 type Role = { role: null | "CLIENT" | "PARTNER" }
 const PartnerLayout = ({ children }: Children) => {
   const pathName = usePathname()
-  const authRoute = [
-    "/partner/sign-in",
-    "/partner/sign-up"
-  ].includes(pathName)
+  const authRoute = ["/partner/sign-in", "/partner/sign-up"].includes(pathName)
   const router = useRouter()
   const { data, isLoading } = useFetch<Role>(
     ["tokenValid"],
@@ -26,11 +23,11 @@ const PartnerLayout = ({ children }: Children) => {
     },
   )
   useEffect(() => {
-  	console.log(data)
-    if ((data?.role === null && !isLoading) && !authRoute) {
+    console.log(data)
+    if (data?.role === null && !isLoading && !authRoute) {
       router.push("/partner/sign-up")
     }
-    if ((data?.role === "CLIENT" && !isLoading) && !authRoute) {
+    if (data?.role === "CLIENT" && !isLoading && !authRoute) {
       router.push("/client")
     }
   }, [isLoading, authRoute, data?.role, router])
