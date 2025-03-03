@@ -28,9 +28,9 @@ const ProfilePage = () => {
     },
   )
   const logout = () => {
-   	router.push("/")
   	localStorage.removeItem("token")
    	queryClient.invalidateQueries({queryKey: ["client"]})
+   	router.push("/client")
   }
   if (isLoading) return <Loader />
   if (error) return <span>error</span>

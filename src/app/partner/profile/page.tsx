@@ -3,12 +3,16 @@ import { Container } from "@/shared/ui/container"
 import { useFetch } from "@/shared/api/use-fetch"
 import { Loader } from "@/shared/ui/loader"
 import styles from "./index.module.css"
+import { useRouter } from "next/navigation"
+import { useQueryClient } from "@tanstack/react-query"
 type Partner = {
   email: string
   name: string
   picture_url: string
 }
 const Profile = () => {
+	const router = useRouter()
+	const queryClient = useQueryClient()
   const partnerQuery = useFetch<Partner>(
     ["partner"],
     {
@@ -22,6 +26,11 @@ const Profile = () => {
       cacheTime: 5 * 60 * 1000,
     },
   )
+  const logout = () => {
+  	localStorage.removeItem("token")
+   	queryClient.invalidateQueries({queryKey: ["partner"]})
+  	router.push("/partner")
+  }
   if (partnerQuery.isLoading) return <Loader />
   if (partnerQuery.error) return <span>error</span>
   if (partnerQuery.data)
