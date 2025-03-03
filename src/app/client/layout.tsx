@@ -1,37 +1,11 @@
 "use client"
 import { Children } from "@/shared/models/chilren.js"
 import { Menu } from "@/widgets/menu"
-import { usePathname, useRouter } from "next/navigation"
-import { useFetch } from "@/shared/api/use-fetch"
-import { useEffect } from "react"
-import { Loader } from "@/shared/ui/loader"
-
-type Role = { role: null | "CLIENT" | "PARTNER" }
+import { usePathname } from "next/navigation"
 
 const ClientLayout = ({ children }: Children) => {
   const pathName = usePathname()
   const authRoute = ["/client/sign-in", "/client/sign-up"].includes(pathName)
-  const router = useRouter()
-  const { data, isLoading } = useFetch<Role>(
-    ["tokenValid"],
-    {
-      endpoint: "/get/role",
-    },
-    {
-      retry: false,
-    },
-  )
-  useEffect(() => {
-    if (data?.role === null && !isLoading && !authRoute) {
-      router.push("/client/sign-up")
-    }
-    if (data?.role === "PARTNER" && !isLoading && !authRoute) {
-      router.push("/partner")
-    }
-  }, [isLoading, authRoute, data?.role, router])
-  if (isLoading && !authRoute) {
-    return <Loader />
-  }
   return (
     <>
       {children}

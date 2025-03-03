@@ -20,6 +20,7 @@ const fetchData = async <T>({
   data,
 }: ResponseParams): Promise<T> => {
   const response = await httpClient[method]<T>(endpoint, data)
+  console.log(endpoint, response.data)
   return response.data
 }
 

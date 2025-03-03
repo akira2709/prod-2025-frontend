@@ -6,6 +6,7 @@ import { Fetch } from "@/shared/api/use-fetch"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
 import styles from "./index.module.css"
+
 type SignUpResponse = {
   token: string
 }

@@ -1,11 +1,11 @@
 "use client"
-import { ChangeEvent, useState } from "react"
+import { useState } from "react"
 import { Input } from "@/shared/ui/input"
 import { Login } from "@/shared/ui/login"
 import { Fetch } from "@/shared/api/use-fetch"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
-import styles from "./index.module.css"
+
 type SignUpResponse = {
   token: string
 }
