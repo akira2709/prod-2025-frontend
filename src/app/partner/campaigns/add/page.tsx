@@ -16,6 +16,7 @@ const CreateLoyalty = () => {
       toast.error("Все поля должны быть заполнены")
       return
     }
+    console.log({title, target_usages: Number(targetUsages)})
     const { data, error } = await Fetch<{ status: string }>({
       endpoint: "/partner/create-loyalty",
       method: "post",
@@ -26,7 +27,7 @@ const CreateLoyalty = () => {
       return
     }
     toast.success("Программа лояльности добавлена!")
-    router.push("/partner/loyalty")
+    router.push("/partner/campaigns")
   }
   return (
     <div className={styles.container}>
