@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import { toast } from "sonner"
 import { Fetch } from "@/shared/api/use-fetch"
 import { Input } from "@/shared/ui/input"
-import styles from "./CreateLoyalty.module.css"
+import styles from "./index.module.css"
 
 export const CreateLoyalty = () => {
   const router = useRouter()
