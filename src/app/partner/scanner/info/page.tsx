@@ -42,10 +42,18 @@ const ScannerInfoPage = () => {
               </p>
             </Container>
             <div className={styles.buttonGroup}>
-              <Button client_id={clientId} loyalty_id={loyalty.loyalty_id} type={"plus-one"}>
+              <Button
+                client_id={clientId}
+                loyalty_id={loyalty.loyalty_id}
+                type={"plus-one"}
+              >
                 Добавить
               </Button>
-              <Button client_id={clientId} loyalty_id={loyalty.loyalty_id} type={"give"}>
+              <Button
+                client_id={clientId}
+                loyalty_id={loyalty.loyalty_id}
+                type={"give"}
+              >
                 Выдать
               </Button>
             </div>
