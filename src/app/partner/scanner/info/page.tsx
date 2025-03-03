@@ -5,6 +5,7 @@ import { Container } from "@/shared/ui/container"
 import { useFetch } from "@/shared/api/use-fetch"
 import { Loader } from "@/shared/ui/loader"
 import { Button } from "@/shared/ui/button"
+import Link from "next/link"
 type Loyalty = {
   loyalty_id: string
   title: string
@@ -33,6 +34,9 @@ const ScannerInfoPage = () => {
     return (
       <div className={styles.wrapper}>
         <h1 className={styles.title}>Текущие программы лояльности</h1>
+        <Link href="/partner/scanner" className={styles.btn_back}>
+          Назад
+        </Link>
         {loyaltyQuery.data.map((loyalty, index) => (
           <div key={index} className={styles.promoWrapper}>
             <Container>

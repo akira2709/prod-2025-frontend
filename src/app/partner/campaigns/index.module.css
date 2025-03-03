@@ -21,6 +21,7 @@
   background: var(--grey-300);
   padding: 12px;
   text-decoration: none;
+  border: none;
 }
 .header {
   width: 100%;

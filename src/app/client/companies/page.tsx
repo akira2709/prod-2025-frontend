@@ -33,9 +33,9 @@ const CompaniesPage = () => {
   )
   if (isLoading) return <Loader />
   if (error) {
-    const message = error.response.data.detail
-    toast.error(message)
-    return <span>{message}</span>
+    // const message = error.response.data.detail
+    // toast.error(message)
+    return <span>ошибка</span>
   }
   if (data)
     return (
