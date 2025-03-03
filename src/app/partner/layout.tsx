@@ -8,7 +8,7 @@ import { useFetch } from "@/shared/api/use-fetch"
 import { useEffect } from "react"
 import { Loader } from "@/shared/ui/loader"
 
-type Role = { role: null | "client" | "partner" }
+type Role = { role: null | "CLIENT" | "PARTNER" }
 const PartnerLayout = ({ children }: Children) => {
   const pathName = usePathname()
   const authRoute = ["/partner/sign-in", "/partner/sign-up", "partner/scanner"].includes(pathName)
@@ -23,11 +23,14 @@ const PartnerLayout = ({ children }: Children) => {
     },
   )
   useEffect(() => {
-    if (data?.role === null && !isLoading && !authRoute) {
+    if ((data?.role === null && !isLoading) && !authRoute) {
       router.push("/partner/sign-up")
     }
+    if ((data?.role === "CLIENT") && !authRoute) {
+    	router.push("/client")
+    }
   }, [isLoading])
-  if ((!data || isLoading) && !authRoute) return <Loader />
+  if (isLoading && !authRoute) return <Loader />
   return (
     <>
       {!authRoute && <Header />}

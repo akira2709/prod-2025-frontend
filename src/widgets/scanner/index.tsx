@@ -30,6 +30,8 @@ export const Scanner = () => {
 				container: styles.container,
 				video: styles.scanner
 			}}
+			allowMultiple
+			scanDelay={500}
 		/>
 	)
 }
