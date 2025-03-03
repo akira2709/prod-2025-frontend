@@ -5,7 +5,6 @@ import { Loader } from "@/shared/ui/loader"
 import styles from "./index.module.css"
 import { useRouter } from "next/navigation"
 import { useQueryClient } from "@tanstack/react-query"
-import Image from "next/image"
 type Partner = {
   email: string
   name: string
@@ -41,11 +40,9 @@ const Profile = () => {
         <div className={styles.mainBlock}>
           <div className={styles.avatarWrapper}>
             <div className={styles.avatar}>
-              <Image
+              <img
                 src={partnerQuery.data.picture_url}
                 alt="Лого"
-                width={50}
-                height={50}
               />
             </div>
           </div>

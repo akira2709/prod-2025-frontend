@@ -22,7 +22,7 @@ const CreateLoyalty = () => {
       data: { title, target_usages: Number(targetUsages) },
     })
     if (error) {
-      toast.error(error.response.data.detail)
+      toast.error(error.response.data.detail.message)
       return
     }
     toast.success("Программа лояльности добавлена!")

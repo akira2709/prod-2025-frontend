@@ -1,7 +1,6 @@
 "use client"
 import styles from "./index.module.css"
 import Link from "next/link"
-import Image from "next/image"
 export const Header = () => {
   return (
     <header className={styles.header}>
@@ -19,12 +18,11 @@ export const Header = () => {
           Кампании
         </Link>
         <div className={styles.profile_link}>
-          {/* <Image
-            width={40}
-            height={40}
+          <img
+          className={styles.logo}
             src="https://source.unsplash.com/random/40x40"
             alt="Лого"
-          /> */}
+          />
           <Link href="/partner/profile" className={styles.links}>
             Профиль
           </Link>

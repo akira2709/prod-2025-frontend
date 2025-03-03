@@ -10,7 +10,7 @@ type Loyalty = {
 }
 const Campaigns = () => {
   const loyaltyQuery = useFetch<Loyalty[]>(
-    ["loyalty"],
+    ["loyaltySpisokPartner"],
     {
       endpoint: "/partner/loyalty",
       method: "get",
