@@ -25,6 +25,7 @@ const ProfilePage = () => {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
       refetchInterval: false,
+      retry: false
     },
   )
   const logout = async () => {
