@@ -58,6 +58,9 @@ const Profile = () => {
           <h2 className={styles.title}>Email</h2>
           <p className={styles.desc}>{partnerQuery.data.email}</p>
         </Container>
+        <button onClick={logout} className={styles.logout}>
+          Выйти
+        </button>
       </div>
     )
 }

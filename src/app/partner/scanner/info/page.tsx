@@ -4,10 +4,10 @@ import { useClient } from "@/shared/context"
 import { Container } from "@/shared/ui/container"
 import { useFetch } from "@/shared/api/use-fetch"
 import { Loader } from "@/shared/ui/loader"
-import {toast} from "sonner";
-import {Button} from "@/shared/ui/button";
+import { toast } from "sonner"
+import { Button } from "@/shared/ui/button"
 type Loyalty = {
-  loyalty_id: string;
+  loyalty_id: string
   title: string
   target_usages: number
   n_count: number
@@ -29,7 +29,10 @@ const ScannerInfoPage = () => {
   )
   if (loyaltyQuery.isLoading) return <Loader />
   if (loyaltyQuery.error) return <span>error</span>
-  const processAction = async(loyaltyId: string, action: "plus-one" | "give") => {
+  const processAction = async (
+    loyaltyId: string,
+    action: "plus-one" | "give",
+  ) => {
     try {
       const { data, error } = await useFetch(
         [`scanAction-${loyaltyId}-${action}`],
@@ -40,12 +43,14 @@ const ScannerInfoPage = () => {
           refetchOnWindowFocus: false,
           refetchOnMount: false,
           refetchInterval: false,
-        }
+        },
       )
       if (error) {
         toast.error(`Ошибка при выполнении действия: ${action}`)
       } else {
-        toast.success(`Успешно: ${action === "plus-one" ? "Добавлено" : "Выдано"}`)
+        toast.success(
+          `Успешно: ${action === "plus-one" ? "Добавлено" : "Выдано"}`,
+        )
       }
     } catch (error) {
       toast.error(`Ошибка при выполнении действия: ${action}`)
@@ -64,9 +69,15 @@ const ScannerInfoPage = () => {
               </p>
             </Container>
             <div className={styles.buttonGroup}>
-                <Button onClick={() => processAction(loyalty.loyalty_id, "plus-one")}>Добавить</Button>
-                <Button onClick={() => processAction(loyalty.loyalty_id, "give")}>Выдать</Button>
-              </div>
+              <Button
+                onClick={() => processAction(loyalty.loyalty_id, "plus-one")}
+              >
+                Добавить
+              </Button>
+              <Button onClick={() => processAction(loyalty.loyalty_id, "give")}>
+                Выдать
+              </Button>
+            </div>
           </div>
         ))}
       </div>
