@@ -25,7 +25,6 @@ const Campaigns = () => {
   )
   if (loyaltyQuery.isLoading) return <Loader />
   if (loyaltyQuery.error) return <span>error</span>
-  console.log(loyaltyQuery.data)
   if (loyaltyQuery.data)
     return (
       <div className={styles.wrapper}>

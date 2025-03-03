@@ -19,12 +19,12 @@ export const Header = () => {
           Кампании
         </Link>
         <div className={styles.profile_link}>
-          <Image
+          {/* <Image
             width={40}
             height={40}
             src="https://source.unsplash.com/random/40x40"
             alt="Лого"
-          />
+          /> */}
           <Link href="/partner/profile" className={styles.links}>
             Профиль
           </Link>
