@@ -1,17 +1,17 @@
 .container {
-	margin-top: 300px;
-	width: fit-content;
-	height: fit-content;
-	display: flex;
-	justify-content: center;
-	overflow: hidden;
+  margin-top: 300px;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
 .scanner {
-	border: none;
-	border-radius: 20px;
-	width: 300px !important;
-	height: 300px !important;
+  border: none;
+  border-radius: 20px;
+  width: 300px !important;
+  height: 300px !important;
 }
 .container svg {
-	display: none;
+  display: none;
 }

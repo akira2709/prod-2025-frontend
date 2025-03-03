@@ -24,11 +24,11 @@
   background-color: inherit;
 }
 .logout {
-	width: 40vw;
-	height: 40px;
-	border: 2px var(--grey-200) solid;
-	border-radius: 10px;
-	background: darkred;
-	justify-self: center;
-	align-self: center;
+  width: 40vw;
+  height: 40px;
+  border: 2px var(--grey-200) solid;
+  border-radius: 10px;
+  background: darkred;
+  justify-self: center;
+  align-self: center;
 }

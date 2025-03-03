@@ -22,16 +22,16 @@ const ClientLayout = ({ children }: Children) => {
     },
   )
   useEffect(() => {
-    if ((data?.role === null && !isLoading) && !authRoute) {
+    if (data?.role === null && !isLoading && !authRoute) {
       router.push("/client/sign-up")
     }
-    if ((data?.role === "PARTNER" && !isLoading) && !authRoute) {
-    	router.push("/partner")
+    if (data?.role === "PARTNER" && !isLoading && !authRoute) {
+      router.push("/partner")
     }
   }, [isLoading])
-	if (isLoading && !authRoute) {
-		return <Loader />
-	}
+  if (isLoading && !authRoute) {
+    return <Loader />
+  }
   return (
     <>
       {children}

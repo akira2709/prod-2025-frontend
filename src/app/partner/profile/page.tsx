@@ -11,8 +11,8 @@ type Partner = {
   picture_url: string
 }
 const Profile = () => {
-	const router = useRouter()
-	const queryClient = useQueryClient()
+  const router = useRouter()
+  const queryClient = useQueryClient()
   const partnerQuery = useFetch<Partner>(
     ["partner"],
     {
@@ -27,9 +27,9 @@ const Profile = () => {
     },
   )
   const logout = () => {
-  	localStorage.removeItem("token")
-   	queryClient.invalidateQueries({queryKey: ["partner"]})
-  	router.push("/partner")
+    localStorage.removeItem("token")
+    queryClient.invalidateQueries({ queryKey: ["partner"] })
+    router.push("/partner")
   }
   if (partnerQuery.isLoading) return <Loader />
   if (partnerQuery.error) return <span>error</span>

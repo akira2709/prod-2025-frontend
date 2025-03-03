@@ -14,8 +14,8 @@ type Client = {
 }
 
 const ProfilePage = () => {
-	const router = useRouter()
-	const queryClient = useQueryClient()
+  const router = useRouter()
+  const queryClient = useQueryClient()
   const { data, error, isLoading } = useFetch<Client>(
     ["client"],
     {
@@ -24,13 +24,13 @@ const ProfilePage = () => {
     {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
-      refetchInterval: false
+      refetchInterval: false,
     },
   )
   const logout = () => {
-  	localStorage.removeItem("token")
-   	queryClient.invalidateQueries({queryKey: ["client"]})
-   	router.push("/client")
+    localStorage.removeItem("token")
+    queryClient.invalidateQueries({ queryKey: ["client"] })
+    router.push("/client")
   }
   if (isLoading) return <Loader />
   if (error) return <span>error</span>
@@ -56,7 +56,9 @@ const ProfilePage = () => {
             {data.gender === "MALE" ? "Мужской" : "Женский"}
           </p>
         </Container>
-				<button onClick={logout} className={styles.logout}>Выйти</button>
+        <button onClick={logout} className={styles.logout}>
+          Выйти
+        </button>
       </div>
     )
 }
