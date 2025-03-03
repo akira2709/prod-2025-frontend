@@ -28,6 +28,7 @@
   align-self: center;
   cursor: pointer;
   transition: 0.4s linear;
+  background: var(--dark);
 }
 .button:hover {
   background-color: (--grey-300);
