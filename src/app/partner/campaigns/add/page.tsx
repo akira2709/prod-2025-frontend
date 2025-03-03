@@ -5,7 +5,7 @@ import { toast } from "sonner"
 import { Fetch } from "@/shared/api/use-fetch"
 import { Input } from "@/shared/ui/input"
 import styles from "./index.module.css"
-
+import Link from "next/link";
 const CreateLoyalty = () => {
   const router = useRouter()
   const [title, setTitle] = useState<string>("")
@@ -49,6 +49,9 @@ const CreateLoyalty = () => {
       <button onClick={handleSubmit} className={styles.button}>
         Создать программу
       </button>
+      <Link href="/partner/campaigns" className={styles.button}>
+        Назад
+      </Link>
     </div>
   )
 }

@@ -3,6 +3,8 @@ import { Container } from "@/shared/ui/container"
 import { useFetch } from "@/shared/api/use-fetch"
 import { Loader } from "@/shared/ui/loader"
 import styles from "./index.module.css"
+import Link from "next/link";
+import React from "react";
 type Loyalty = {
   loyalty_id: string
   title: string
@@ -28,7 +30,10 @@ const Campaigns = () => {
   if (loyaltyQuery.data)
     return (
       <div className={styles.wrapper}>
-        <h1 className={styles.title}>Ваши программы лояльности</h1>
+        <div className={styles.header}>
+          <h1 className={styles.title}>Ваши программы лояльности</h1>
+          <Link href="/partner/campaigns/add" className={styles.btn}>Добавить программу</Link>
+        </div>
         <div className={styles.loyalties_wrapper}>
           {loyaltyQuery.data.map((loyalty: Loyalty, index: number) => {
             return (
