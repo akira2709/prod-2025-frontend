@@ -1,6 +1,7 @@
 import { useState } from "react"
 import styles from "./index.module.css"
 import { Container } from "@/shared/ui/container"
+import Image from "next/image"
 type Loyalty = {
   title: string
   target_usages: number
@@ -30,7 +31,7 @@ export const CompanyInfoContainer = (props: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.baseBlock} onClick={toggleOpen}>
-        <img
+        <Image
           className={styles.icon}
           src={props.company.picture_url}
           alt={props.company.name}

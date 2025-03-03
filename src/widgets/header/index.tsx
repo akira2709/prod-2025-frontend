@@ -1,5 +1,6 @@
 import styles from "./index.module.css"
-import Link from "next/link"
+import Link from "next/link";
+import Image from "next/image";
 export const Header = () => {
   return (
     <header className={styles.header}>
@@ -17,7 +18,7 @@ export const Header = () => {
           Кампании
         </Link>
         <div className={styles.profile_link}>
-          <img
+          <Image
             src="https://source.unsplash.com/random/40x40"
             alt="Лого"
             className={styles.logo}
