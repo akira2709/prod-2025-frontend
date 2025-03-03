@@ -4,11 +4,13 @@ import styles from "./index.module.css"
 import { Scanner as QrReader } from "@yudiel/react-qr-scanner"
 import { toast } from "sonner"
 import { Fetch } from "@/shared/api/use-fetch"
-
+import {useClient } from "@/shared/context";
 export const Scanner = () => {
+	const {setClientId } = useClient();
 	const [qrcode, setQrcode] = useState<string>("")
 	const handleScan = async (result: any) => {
 		const clientId = result.at(0).rawValue
+		setClientId(clientId);
 		const { data, error } = await Fetch({
 			endpoint: `/partner/scan/${clientId}`
 		})
