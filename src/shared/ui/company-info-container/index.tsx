@@ -34,6 +34,8 @@ export const CompanyInfoContainer = (props: Props) => {
         <Image
           className={styles.icon}
           src={props.company.picture_url}
+          fill
+          style={{ objectFit: "cover" }}
           alt={props.company.name}
         />
         <p className={styles.title}>{props.company.name}</p>

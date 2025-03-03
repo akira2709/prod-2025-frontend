@@ -43,6 +43,9 @@ const Profile = () => {
               <img
                 src={partnerQuery.data.picture_url}
                 alt="Лого"
+                fill
+                style={{ objectFit: "cover" }}
+                className={styles.avatar}
               />
             </div>
           </div>
