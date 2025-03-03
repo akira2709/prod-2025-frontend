@@ -20,6 +20,7 @@ const CompaniesPage = () => {
     ["companies"],
     {
       endpoint: "/client/loyalty",
+      method: "get",
     },
     {
       refetchOnWindowFocus: false,

@@ -18,6 +18,7 @@ const Profile = () => {
     ["partner"],
     {
       endpoint: "/partner/profile",
+      method: "get",
     },
     {
       refetchOnWindowFocus: false,

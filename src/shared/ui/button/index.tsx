@@ -11,6 +11,7 @@ export const Button = ({ client_id, loyalty_id, type, children }: Props) => {
       ["clientLoyaltyArray"],
       {
         endpoint: `/partner/scan/${client_id}/${loyalty_id}/${type}`,
+        method: "post"
       },
       {
         refetchOnWindowFocus: false,

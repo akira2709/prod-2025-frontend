@@ -20,6 +20,7 @@ const ProfilePage = () => {
     ["client"],
     {
       endpoint: "/client/profile",
+      method: "get",
     },
     {
       refetchOnWindowFocus: false,

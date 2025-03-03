@@ -10,6 +10,7 @@ const Stats = () => {
     ["partnerId"],
     {
       endpoint: "/get/role",
+      method: "get",
     },
     {
       refetchOnWindowFocus: false,

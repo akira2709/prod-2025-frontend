@@ -10,6 +10,7 @@ const QRCodePage = () => {
     ["qrcode"],
     {
       endpoint: "/client/qr",
+      method: "get",
     },
     {
       refetchOnWindowFocus: false,

@@ -17,6 +17,7 @@ const ScannerInfoPage = () => {
     ["clientLoyaltyArray"],
     {
       endpoint: `/partner/scan/${clientId}`,
+      method: "get",
     },
     {
       refetchOnWindowFocus: false,
