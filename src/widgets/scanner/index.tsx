@@ -5,7 +5,9 @@ import { Scanner as QrReader } from "@yudiel/react-qr-scanner"
 import { toast } from "sonner"
 import { Fetch } from "@/shared/api/use-fetch"
 import {useClient } from "@/shared/context";
+import { useRouter } from "next/navigation"
 export const Scanner = () => {
+	const router = useRouter();
 	const {setClientId } = useClient();
 	const [qrcode, setQrcode] = useState<string>("")
 	const handleScan = async (result: any) => {
@@ -15,6 +17,7 @@ export const Scanner = () => {
 			endpoint: `/partner/scan/${clientId}`
 		})
 		console.log(data)
+		router.push("/scanner/info")
 	}
 	const handleError = (error: any) => {
 		toast.error("Ошибка сканирования")
