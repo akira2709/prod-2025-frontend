@@ -13,7 +13,7 @@ const Campaigns = () => {
     ["loyalty"],
     {
       endpoint: "/partner/loyalty",
-      method: "get"
+      method: "get",
     },
     {
       refetchOnWindowFocus: false,
