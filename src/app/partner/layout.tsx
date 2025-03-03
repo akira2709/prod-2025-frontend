@@ -11,7 +11,7 @@ import { Loader } from "@/shared/ui/loader"
 type Role = { role: null | "client" | "partner" }
 const PartnerLayout = ({ children }: Children) => {
   const pathName = usePathname()
-  const authRoute = ["/partner/sign-in", "/partner/sign-up"].includes(pathName)
+  const authRoute = ["/partner/sign-in", "/partner/sign-up", "partner/scanner"].includes(pathName)
   const router = useRouter()
   const { data, isLoading } = useFetch<Role>(
     ["tokenValid"],

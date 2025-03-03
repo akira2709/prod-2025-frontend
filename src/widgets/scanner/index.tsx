@@ -17,7 +17,7 @@ export const Scanner = () => {
 			endpoint: `/partner/scan/${clientId}`
 		})
 		console.log(data)
-		router.push("/scanner/info")
+		router.push("/partner/scanner/info")
 	}
 	const handleError = (error: any) => {
 		toast.error("Ошибка сканирования")
