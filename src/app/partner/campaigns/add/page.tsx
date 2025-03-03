@@ -6,7 +6,7 @@ import { Fetch } from "@/shared/api/use-fetch"
 import { Input } from "@/shared/ui/input"
 import styles from "./index.module.css"
 
-export const CreateLoyalty = () => {
+const CreateLoyalty = () => {
   const router = useRouter()
   const [title, setTitle] = useState<string>("")
   const [targetUsages, setTargetUsages] = useState<string>("")
@@ -52,3 +52,4 @@ export const CreateLoyalty = () => {
     </div>
   )
 }
+export default CreateLoyalty;
