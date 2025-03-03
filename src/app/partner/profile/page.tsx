@@ -38,12 +38,14 @@ const Profile = () => {
     return (
       <div className={styles.profilePage}>
         <div className={styles.mainBlock}>
-          <div className={styles.avatar}>
-            <img
-              src={partnerQuery.data.picture_url}
-              alt="Лого"
-              style={{ objectFit: "cover" }}
-            />
+          <div className={styles.avatarWrapper}>
+            <div className={styles.avatar}>
+              <img
+                src={partnerQuery.data.picture_url}
+                alt="Лого"
+                className={styles.avatar}
+              />
+            </div>
           </div>
           <div className={styles.nameWrapper}>
             <Container>

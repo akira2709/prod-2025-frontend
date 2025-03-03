@@ -13,8 +13,7 @@ const PartnerLayout = ({ children }: Children) => {
   const pathName = usePathname()
   const authRoute = [
     "/partner/sign-in",
-    "/partner/sign-up",
-    "partner/scanner",
+    "/partner/sign-up"
   ].includes(pathName)
   const router = useRouter()
   const { data, isLoading } = useFetch<Role>(
@@ -27,10 +26,11 @@ const PartnerLayout = ({ children }: Children) => {
     },
   )
   useEffect(() => {
-    if (data?.role === null && !isLoading && !authRoute) {
+  	console.log(data)
+    if ((data?.role === null && !isLoading) && !authRoute) {
       router.push("/partner/sign-up")
     }
-    if (data?.role === "CLIENT" && !authRoute) {
+    if ((data?.role === "CLIENT" && !isLoading) && !authRoute) {
       router.push("/client")
     }
   }, [isLoading, authRoute, data?.role, router])
