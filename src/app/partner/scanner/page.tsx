@@ -1,7 +1,10 @@
 import React from "react"
+import { Scanner } from "@/widgets/scanner"
 
-const page = () => {
-  return <div>page</div>
+const ScannerPage = () => {
+  return (
+  	<Scanner />
+  )
 }
 
-export default page
+export default ScannerPage

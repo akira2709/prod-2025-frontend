@@ -3,7 +3,7 @@ import WorkboxPlugin from "workbox-webpack-plugin"
 
 const nextConfig: NextConfig = {
   eslint: {},
-  reactStrictMode: false,
+  reactStrictMode: true,
   webpack(config) {
     // Добавляем плагин Workbox для генерации service worker
     config.plugins = [
