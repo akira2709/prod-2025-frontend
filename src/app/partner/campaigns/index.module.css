@@ -16,3 +16,23 @@
 .container_wrapper {
   width: 100%;
 }
+.btn {
+  border-radius: 10px;
+  background: var(--grey-300);
+  padding: 12px;
+  text-decoration: none;
+}
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.pagination {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

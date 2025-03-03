@@ -26,7 +26,7 @@ const Stats = () => {
     return (
       <div>
         <iframe
-          src={`https://prod-team-19-n7cvsvtm.final.prodcontest.ru/grafana/public-dashboards/448b1e5d1b6347989b7e08e975bc874b?var-partner_id=${partnerQuery.data.user_id}`}
+          src={`https://prod-team-19-n7cvsvtm.final.prodcontest.ru/grafana/d/bedo0n5d7q3nkc/kolichestvo-pokazov?var-partner_id=${partnerQuery.data.user_id}&kiosk`}
           width="100%"
           height="600"
         ></iframe>
