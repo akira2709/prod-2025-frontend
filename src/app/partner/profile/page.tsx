@@ -5,7 +5,7 @@ import { Loader } from "@/shared/ui/loader"
 import styles from "./index.module.css"
 import { useRouter } from "next/navigation"
 import { useQueryClient } from "@tanstack/react-query"
-import Image from "next/image";
+import Image from "next/image"
 type Partner = {
   email: string
   name: string

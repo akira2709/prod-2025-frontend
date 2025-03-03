@@ -1,9 +1,16 @@
-import { useQuery, UseQueryResult } from "@tanstack/react-query"
+import {
+  useQueries,
+  useQuery,
+  UseQueryOptions,
+  UseQueryResult,
+} from "@tanstack/react-query"
 import httpClient from "../http-client"
+
+type requestMethod = "get" | "post" | "put" | "patch" | "delete"
 
 type ResponseParams = {
   endpoint: string
-  method?: "get" | "post" | "put" | "patch" | "delete"
+  method?: requestMethod
   data?: object
 }
 
@@ -27,12 +34,34 @@ type TypedError = {
 export const useFetch = <T, E = TypedError>(
   keys: string[],
   { endpoint, method = "get", data }: ResponseParams,
-  options = {},
+  options = {} as UseQueryOptions<T, E> | {},
 ): UseQueryResult<T, E> => {
   return useQuery({
     queryKey: keys,
     queryFn: () => fetchData<T>({ endpoint, method, data }),
     ...options,
+  })
+}
+
+type fetchsRequest<T, E = TypedError> = {
+  keys: string[]
+  params: ResponseParams
+  options: UseQueryOptions<T, E> | {}
+}
+
+export const useFetchs = <T, E = TypeError>(
+  requests: fetchsRequest<T>[],
+): UseQueryResult<T, E>[] => {
+  return useQueries({
+    queries: requests.map(
+      ({ keys, params, options = {} }: fetchsRequest<T>) => {
+        return {
+          queryKey: keys,
+          queryFn: () => fetchData<T>(params),
+          ...options,
+        }
+      },
+    ),
   })
 }
 

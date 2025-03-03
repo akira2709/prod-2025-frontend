@@ -1,6 +1,6 @@
 import styles from "./index.module.css"
-import Link from "next/link";
-import Image from "next/image";
+import Link from "next/link"
+import Image from "next/image"
 export const Header = () => {
   return (
     <header className={styles.header}>
