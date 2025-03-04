@@ -13,13 +13,13 @@ httpClient.interceptors.request.use((config) => {
 })
 httpClient.interceptors.response.use((response) => response, (error) => {
   const pathname = window.location.pathname
-  if ([401, 403].includes(error.status)) {
+  const namespace = pathname.startsWith("/client")
+    ? "client"
+    : pathname.startsWith("/partner")
+      ? "partner"
+      : "client"
+  if ([401, 403].includes(error.status) && ![`/${namespace}/sign-in`, `/${namespace}/sign-up`].includes(pathname)) {
   	console.log(pathname)
-    const namespace = pathname.startsWith("/client")
-      ? "client"
-      : pathname.startsWith("/partner")
-        ? "partner"
-        : "client"
     window.location.href = `/${namespace}/sign-up`
   }
   return Promise.reject(error)
