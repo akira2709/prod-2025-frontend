@@ -18,6 +18,7 @@ export const Button = ({ client_id, loyalty_id, type, children }: Props) => {
       return
     }
     toast.success("Удалось!")
+    window.location.reload();
   }
   return (
     <button onClick={() => process()} className={styles.button}>
