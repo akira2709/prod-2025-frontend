@@ -11,6 +11,7 @@ interface Loyalty {
 }
 export interface Company {
   name: string
+  partner_id: string
   loyalties: Loyalty[]
 }
 
@@ -30,8 +31,7 @@ export const CompanyInfoContainer = ({ company }: { company: Company }) => {
       <div className={styles.baseBlock} onClick={toggleOpen}>
         <img
           className={styles.icon}
-          // src={`${API_URL}/api/partner/image?partner_id=${}`}
-          src={undefined}
+          src={`${API_URL}/api/partner/image?partner_id=${company.partner_id}`}
         />
         <p className={styles.title}>{company.name}</p>
         <div className={`${styles.arrow} ${isOpen ? styles.up : ""}`} />
