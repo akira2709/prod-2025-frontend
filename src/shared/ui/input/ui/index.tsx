@@ -59,6 +59,7 @@ export const Input = memo((props: Props) => {
         blocks={dateValidate}
         overwrite={false}
         displayChar={props.type === "password" ? "*" : undefined}
+        autoComplete={"on"}
       ></IMaskInput>
     </div>
   )

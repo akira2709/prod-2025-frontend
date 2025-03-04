@@ -1,48 +1,25 @@
 .profilePage {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  background-color: transparent;
+	padding: 0 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
-.mainBlock {
-  width: 100%;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  height: 100px;
+.avatarContainer {
+	display: flex;
+	align-items: center;
+	gap: 20px;
 }
-.avatar {
-  border-radius: 50%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border: 1px solid #fff;
-  height: 80px;
-  overflow: hidden;
+.avatarWrapper {
+	width: 60px;
+	height: 60px;
+	border: none;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-.title {
-  font-size: 24px;
-  font-weight: 600;
-  margin: 0;
-  background-color: inherit;
-}
-.desc {
-  font-size: 20px;
-  font-weight: 100;
-  margin: 0;
-  background-color: inherit;
-}
-.logout {
-  width: 40vw;
-  height: 40px;
-  border: 2px var(--grey-200) solid;
-  border-radius: 10px;
-  background: darkred;
-  justify-self: center;
-  align-self: center;
-}
-.fileInput {
-  background: var(--grey-400);
-  padding: 20px;
-  border-radius: 10px;
+.infoContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }

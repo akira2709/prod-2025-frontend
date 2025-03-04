@@ -5,96 +5,51 @@ import { Loader } from "@/shared/ui/loader"
 import styles from "./index.module.css"
 import { redirect } from "next/navigation"
 import { useQueryClient } from "@tanstack/react-query"
-import React from "react"
-import { Fetch } from "@/shared/api/use-fetch"
-import { toast } from "sonner"
-type Partner = {
-  email: string
-  name: string
-}
-type Image = {
-  picture_url: string
-}
-type Everything = {
-  email: string
-  name: string
-  // picture_url: string
-}
-const Profile = () => {
+import { FileUploader } from "@/shared/ui/file-uploader"
+import { useEffect, useState } from "react"
+
+
+const ProfilePage = () => {
   const queryClient = useQueryClient()
-  const partnerId = localStorage.getItem("partner-id")
-  const partnerQuery = useFetch<Partner>(
+  const [partnerId, setPartnerId] = useState<string | null>(null)
+	const { data, error, isLoading } = useFetch<{ email: string, name: string }>(
     ["partner-profile"],
     {
       endpoint: "/partner/profile",
-      method: "get",
     },
     {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
       refetchInterval: false,
+      retry: false
     },
   )
-  const uploadImage = async (file: File) => {
-    const formData = new FormData()
-    formData.append("file", file)
-    try {
-      const { data, error } = await Fetch<{ status: string }>({
-        endpoint: `/partner/image`,
-        method: "post",
-        data: formData,
-      })
-      if (error) {
-        toast.error("Не удалось загрузить изображение")
-        return
-      }
-      toast.success("Изображение успешно загружено!")
-      queryClient.invalidateQueries({ queryKey: ["partner"] })
-    } catch (error) {
-      toast.error("Произошла ошибка при загрузке изображения")
-    }
-  }
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file && file.type.startsWith("image/")) {
-      uploadImage(file)
-    } else {
-      toast.error("Пожалуйста, выберите изображение")
-    }
-  }
-  const logout = async () => {
+  const logout = () => {
     localStorage.removeItem("token")
     queryClient.invalidateQueries({ queryKey: ["partner"] })
     redirect("/partner")
   }
-  if (partnerQuery.isLoading) return <Loader />
-  if (partnerQuery.error) return <span>Ошибка загрузки профиля</span>
+  useEffect(() => {
+  	setPartnerId(localStorage.getItem("partner-id"))
+  }, [])
+  if (isLoading) return <Loader />
+  if (error) return <span>Ошибка загрузки профиля</span>
   return (
     <div className={styles.profilePage}>
-      <div className={styles.mainBlock}>
-        <div className={styles.avatarWrapper}>
-          <img
-            src={`https://prod-team-19-n7cvsvtm.final.prodcontest.ru/api/partner/image?partner_id=${partnerId}`}
-            alt="Лого"
-            className={styles.avatar}
-          />
-        </div>
-        <div className={styles.nameWrapper}>
-          <Container>
-            <h2 className={styles.title}>Имя</h2>
-            <p className={styles.desc}>{partnerQuery.data?.name}</p>
-          </Container>
-        </div>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-          className={styles.fileInput}
-        />
-      </div>
+      <Container>
+				<div className={styles.avatarContainer}>
+	        <div className={styles.avatarWrapper}>
+	          <FileUploader partnerId={partnerId} />
+	        </div>
+					<div className={styles.infoContainer}>
+	          <h2 className={styles.title}>Имя</h2>
+	          <p className={styles.desc}>{data?.name}</p>
+					</div>
+       	</div>
+      </Container>
       <Container>
         <h2 className={styles.title}>Email</h2>
-        <p className={styles.desc}>{partnerQuery.data?.email}</p>
+        <p className={styles.desc}>{data?.email}</p>
       </Container>
       <button onClick={logout} className={styles.logout}>
         Выйти
@@ -103,4 +58,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default ProfilePage

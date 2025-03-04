@@ -1,11 +1,10 @@
 import axios from "axios"
-import { redirect } from "next/navigation"
 
-export const API_URL = "https://prod-team-19-n7cvsvtm.final.prodcontest.ru/api"
+export const API_URL = "https://prod-team-19-n7cvsvtm.final.prodcontest.ru"
 
 export const httpClient = axios.create({
   withCredentials: false,
-  baseURL: API_URL,
+  baseURL: API_URL + "/api",
 })
 
 httpClient.interceptors.request.use((config) => {
@@ -13,7 +12,6 @@ httpClient.interceptors.request.use((config) => {
   return config
 })
 httpClient.interceptors.response.use((response) => response, (error) => {
-  console.log("error")
   const pathname = window.location.pathname
   if ([401, 403].includes(error.status)) {
   	console.log(pathname)

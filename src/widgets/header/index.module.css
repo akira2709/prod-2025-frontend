@@ -2,10 +2,9 @@
   position: fixed;
   top: 20px;
   left: 20px;
-  width: calc(100vw - 56px);
-  padding: 28px;
-  background-color: var(--grey-300);
-  display: none;
+  width: calc(100vw - 40px);
+  padding: 30px 0;
+  background: var(--grey-300);
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
@@ -18,22 +17,19 @@
   background-color: inherit;
   gap: 20px;
   justify-content: space-around;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 100%;
+  padding: 0 20px;
 }
-@media (width >= 678px) {
-  .nav {
-    flex-direction: row;
-  }
+@media (width <= 660px) {
   .header {
-    display: flex;
+    display: none;
   }
 }
 .links {
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 100%;
   background-color: inherit;
 }
 .profile_link {
