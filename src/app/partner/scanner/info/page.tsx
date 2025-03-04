@@ -1,10 +1,10 @@
 "use client"
 import styles from "./index.module.css"
-import { useClient } from "@/shared/context"
 import { Container } from "@/shared/ui/container"
 import { useFetch } from "@/shared/api/use-fetch"
 import { Loader } from "@/shared/ui/loader"
 import { Button } from "@/shared/ui/button"
+import { useState, useEffect } from "react";
 import Link from "next/link"
 type Loyalty = {
   loyalty_id: string
@@ -12,8 +12,11 @@ type Loyalty = {
   target_usages: number
   n_count: number
 }
-const ScannerInfoPage = () => {
-  const { clientId } = useClient()
+const ScannerInfoPage = () => {`  `
+  const [clientId, setClientId] = useState<string>("");
+  useEffect(() => {
+    setClientId(localStorage.getItem("clientId-for-scanner") || "");
+  }, [])
   const loyaltyQuery = useFetch<Loyalty[]>(
     ["clientLoyaltyArray"],
     {
