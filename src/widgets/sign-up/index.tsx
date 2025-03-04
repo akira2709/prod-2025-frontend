@@ -4,7 +4,7 @@ import { Input } from "@/shared/ui/input"
 import { Login } from "@/shared/ui/login"
 import { Fetch } from "@/shared/api/use-fetch"
 import { toast } from "sonner"
-import { useRouter } from "next/navigation"
+import { redirect } from "next/navigation"
 import styles from "./index.module.css"
 
 type SignUpResponse = {
@@ -12,7 +12,6 @@ type SignUpResponse = {
 }
 
 export const SignUp = () => {
-  const router = useRouter()
   const [name, setName] = useState<string>("")
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
@@ -31,13 +30,15 @@ export const SignUp = () => {
         gender: gender,
       },
     })
-    if (data) {
-      localStorage.setItem("token", data.token)
-      toast.success("Вы зарегестрированы!")
-      router.push("/client")
+    if (error) {
+      toast.error(error.response.data.detail)
       return
     }
-    toast.error(error?.response.data.detail)
+    if (data !== null) {
+      localStorage.setItem("token", data.token)
+      toast.success("Вы зарегестрированы!")
+      redirect("/client")
+    }
   }
   const handleChangeGender = (event: ChangeEvent<HTMLSelectElement>) => {
     setGender(event.target.value)

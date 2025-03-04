@@ -21,20 +21,36 @@
   align-items: center;
   padding: 0 20px;
 }
-@media (width <= 660px) {
-  .header {
+@media (width <= 700px) {
+  .partner {
     display: none;
   }
 }
+@media (width <= 610px) {
+  .profile {
+    display: none;
+  }
+}
+@media (width <= 530px) {
+  .stats {
+    display: none;
+  }
+}
+@media (width <= 440px) {
+  .scanner {
+    display: none;
+  }
+}
+
 .links {
   color: white;
   text-decoration: none;
   font-size: 100%;
   background-color: inherit;
 }
-.profile_link {
+.container {
   display: flex;
-  background-color: inherit;
+  background: transparent;
   align-items: center;
   gap: 10px;
 }

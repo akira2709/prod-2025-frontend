@@ -8,11 +8,10 @@ import { useQueryClient } from "@tanstack/react-query"
 import { FileUploader } from "@/shared/ui/file-uploader"
 import { useEffect, useState } from "react"
 
-
 const ProfilePage = () => {
   const queryClient = useQueryClient()
   const [partnerId, setPartnerId] = useState<string | null>(null)
-	const { data, error, isLoading } = useFetch<{ email: string, name: string }>(
+  const { data, error, isLoading } = useFetch<{ email: string; name: string }>(
     ["partner-profile"],
     {
       endpoint: "/partner/profile",
@@ -21,31 +20,31 @@ const ProfilePage = () => {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
       refetchInterval: false,
-      retry: false
+      retry: false,
     },
   )
   const logout = () => {
     localStorage.removeItem("token")
     queryClient.invalidateQueries({ queryKey: ["partner"] })
-    redirect("/partner")
+    redirect("/partner/sign-up")
   }
   useEffect(() => {
-  	setPartnerId(localStorage.getItem("partner-id"))
+    setPartnerId(localStorage.getItem("partner-id"))
   }, [])
   if (isLoading) return <Loader />
   if (error) return <span>Ошибка загрузки профиля</span>
   return (
     <div className={styles.profilePage}>
       <Container>
-				<div className={styles.avatarContainer}>
-	        <div className={styles.avatarWrapper}>
-	          <FileUploader partnerId={partnerId} />
-	        </div>
-					<div className={styles.infoContainer}>
-	          <h2 className={styles.title}>Имя</h2>
-	          <p className={styles.desc}>{data?.name}</p>
-					</div>
-       	</div>
+        <div className={styles.avatarContainer}>
+          <div className={styles.avatarWrapper}>
+            <FileUploader partnerId={partnerId} />
+          </div>
+          <div className={styles.infoContainer}>
+            <h2 className={styles.title}>Имя</h2>
+            <p className={styles.desc}>{data?.name}</p>
+          </div>
+        </div>
       </Container>
       <Container>
         <h2 className={styles.title}>Email</h2>

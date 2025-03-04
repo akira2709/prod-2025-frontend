@@ -11,18 +11,24 @@ httpClient.interceptors.request.use((config) => {
   config.headers.Authorization = `Bearer ${localStorage.getItem("token")}`
   return config
 })
-httpClient.interceptors.response.use((response) => response, (error) => {
-  const pathname = window.location.pathname
-  const namespace = pathname.startsWith("/client")
-    ? "client"
-    : pathname.startsWith("/partner")
-      ? "partner"
-      : "client"
-  if ([401, 403].includes(error.status) && ![`/${namespace}/sign-in`, `/${namespace}/sign-up`].includes(pathname)) {
-  	console.log(pathname)
-    window.location.href = `/${namespace}/sign-up`
-  }
-  return Promise.reject(error)
-})
+httpClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const pathname = window.location.pathname
+    const namespace = pathname.startsWith("/client")
+      ? "client"
+      : pathname.startsWith("/partner")
+        ? "partner"
+        : "client"
+    if (
+      [401, 403].includes(error.status) &&
+      ![`/${namespace}/sign-in`, `/${namespace}/sign-up`].includes(pathname)
+    ) {
+      console.log(pathname)
+      window.location.href = `/${namespace}/sign-up`
+    }
+    return Promise.reject(error)
+  },
+)
 
 export default httpClient

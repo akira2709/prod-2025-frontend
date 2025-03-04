@@ -1,25 +1,34 @@
 .profilePage {
-	padding: 0 20px;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .avatarContainer {
-	display: flex;
-	align-items: center;
-	gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 .avatarWrapper {
-	width: 60px;
-	height: 60px;
-	border: none;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .infoContainer {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.logout {
+  width: 40vw;
+  height: 40px;
+  border: 2px var(--grey-200) solid;
+  border-radius: 10px;
+  background: darkred;
+  justify-self: center;
+  align-self: center;
 }

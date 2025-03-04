@@ -6,7 +6,7 @@ import { Loader } from "@/shared/ui/loader"
 import styles from "./index.module.css"
 
 const Stats = () => {
-	const partnerQuery = useFetch<Role & { user_id: string }>(
+  const partnerQuery = useFetch<Role & { user_id: string }>(
     ["partnerId"],
     {
       endpoint: "/get/role",
@@ -15,7 +15,7 @@ const Stats = () => {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
       refetchInterval: false,
-      retry: false
+      retry: false,
     },
   )
   if (partnerQuery.isLoading) return <Loader />

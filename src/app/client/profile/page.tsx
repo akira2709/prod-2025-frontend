@@ -25,13 +25,13 @@ const ProfilePage = () => {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
       refetchInterval: false,
-      retry: false
+      retry: false,
     },
   )
-  const logout = async () => {
+  const logout = () => {
     localStorage.removeItem("token")
     queryClient.invalidateQueries({ queryKey: ["client"] })
-    redirect("/client")
+    redirect("/client/sign-up")
   }
   if (isLoading) return <Loader />
   if (error) return <span>error</span>
@@ -57,7 +57,7 @@ const ProfilePage = () => {
             {data.gender === "MALE" ? "Мужской" : "Женский"}
           </p>
         </Container>
-        <button onClick={logout} className={styles.logout}>
+        <button className={styles.logout} onClick={logout}>
           Выйти
         </button>
       </div>

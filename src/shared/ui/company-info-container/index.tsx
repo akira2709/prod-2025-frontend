@@ -1,22 +1,20 @@
 import { useState } from "react"
 import styles from "./index.module.css"
 import { Container } from "@/shared/ui/container"
-import Image from "next/image"
-type Loyalty = {
+import { API_URL } from "@/shared/api/http-client"
+
+interface Loyalty {
+  loyalty_id: string
   title: string
   target_usages: number
   n_count: number
 }
-type Company = {
-  picture_url: string
+export interface Company {
   name: string
   loyalties: Loyalty[]
 }
-type Props = {
-  company: Company
-}
 
-export const CompanyInfoContainer = (props: Props) => {
+export const CompanyInfoContainer = ({ company }: { company: Company }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [visibleCount, setVisibleCount] = useState(3)
   const toggleOpen = () => {
@@ -26,35 +24,30 @@ export const CompanyInfoContainer = (props: Props) => {
   const showMore = () => {
     setVisibleCount((prev) => prev + 3)
   }
-  const isMoreLoyalties = visibleCount < props.company.loyalties.length
-
+  const isMoreLoyalties = visibleCount < company.loyalties.length
   return (
     <div className={styles.container}>
       <div className={styles.baseBlock} onClick={toggleOpen}>
-        <Image
+        <img
           className={styles.icon}
-          src={props.company.picture_url}
-          fill
-          style={{ objectFit: "cover" }}
-          alt={props.company.name}
+          // src={`${API_URL}/api/partner/image?partner_id=${}`}
+          src={undefined}
         />
-        <p className={styles.title}>{props.company.name}</p>
+        <p className={styles.title}>{company.name}</p>
         <div className={`${styles.arrow} ${isOpen ? styles.up : ""}`} />
       </div>
       {isOpen && (
         <div className={styles.dropdown}>
-          {props.company.loyalties
-            .slice(0, visibleCount)
-            .map((loyalty, index) => (
-              <div key={index} className={styles.promoWrapper}>
-                <Container>
-                  <h2 className={styles.title}>{loyalty.title}</h2>
-                  <p className={styles.desc}>
-                    {loyalty.n_count} из {loyalty.target_usages}
-                  </p>
-                </Container>
-              </div>
-            ))}
+          {company.loyalties.slice(0, visibleCount).map((loyalty, index) => (
+            <div key={index} className={styles.promoWrapper}>
+              <Container>
+                <h2 className={styles.title}>{loyalty.title}</h2>
+                <p className={styles.desc}>
+                  {loyalty.n_count} из {loyalty.target_usages}
+                </p>
+              </Container>
+            </div>
+          ))}
           {isMoreLoyalties && (
             <div className={styles.arrowWrapper}>
               <div className={styles.arrow} onClick={showMore}></div>

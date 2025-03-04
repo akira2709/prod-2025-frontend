@@ -31,7 +31,7 @@ body {
   color: var(--text-color);
   margin: 0;
   img[src=""] {
-  	display: none;
+    display: none;
   }
 }
 /* cyrillic-ext */

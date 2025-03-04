@@ -1,32 +1,32 @@
 .avatarContainer {
-	position: relative;
-	width: 100%;
-	aspect-ratio: 1;
-	border: 2px solid var(--grey-200);
-	border-radius: 50%;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 2px solid var(--grey-200);
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 60px;
-	height: 60px;
-	opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  opacity: 0;
 }
 .avatar {
-	width: 100%;
-	aspect-ratio: 1;
-	border: none;
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
 }
 .plus {
-	position: absolute;
-	display: flex;
+  position: absolute;
+  display: flex;
 }
 
 .avatarWrapper:hover .plus {
-	display: none;
+  display: none;
 }

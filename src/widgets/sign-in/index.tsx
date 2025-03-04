@@ -24,12 +24,14 @@ export const SignIn = () => {
         password,
       },
     })
-    if (data) {
+    if (error !== null) {
+      toast.error(error.response.data.detail)
+    }
+    if (data !== null) {
       localStorage.setItem("token", data.token)
       toast.success("Вы успешно вошли!")
       router.replace("/client")
     }
-    toast.error(error?.response.data.detail)
   }
   return (
     <>
@@ -40,8 +42,6 @@ export const SignIn = () => {
         redirectTitle="Регистрация"
         redirectType="sign-up"
       >
-        {" "}
-        {/*Костыль, пофиксить */}
         <Input
           value={email}
           changeValue={setEmail}
