@@ -12,8 +12,8 @@ type Loyalty = {
   target_usages: number
   n_count: number
 }
-const ScannerInfoPage = () => {
-  const { clientId } = useClient()
+const ScannerInfoPage = () => {`  `
+  const clientId = localStorage.getItem("clientId-for-scanner") || ""
   const loyaltyQuery = useFetch<Loyalty[]>(
     ["clientLoyaltyArray"],
     {
