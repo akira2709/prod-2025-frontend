@@ -8,17 +8,17 @@ import styles from "./index.module.css"
 import { Loader } from "lucide-react"
 import { useState } from "react"
 import clsx from "clsx"
-import { useFetch } from "@/shared/api/use-fetch"
+import { Fetch } from "@/shared/api/use-fetch"
 
 const ClientLayout = ({ children }: Children) => {
   const pathName = usePathname()
   const authRoute = ["/client/sign-in", "/client/sign-up"].includes(pathName)
 
   const [isTrophyOpen, setTrophyOpen] = useState<boolean>(false)
-  const [tr, setTr] = useState<TrophyType[] | undefined>(undefined)
-  const handleClick = () => {
+  const [tr, setTr] = useState<TrophyType[] | null>(null)
+  const handleClick = async () => {
   	setTrophyOpen(prev => !prev)
-	 	const { data, error, isLoading } = useFetch<TrophyType[]>(["trophy"], {
+	 	const { data, error } = await Fetch<TrophyType[]>({
 			endpoint: "/client/achievements"
 		})
 		setTr(data)
@@ -32,7 +32,7 @@ const ClientLayout = ({ children }: Children) => {
      		<Trophy className={styles.trophy} />
       </div>
 			<div className={clsx(styles.trophyList, isTrophyOpen ? styles.open : styles.close)} >
-				{ tr === undefined ? (<Loader />) : tr?.map((trophy: TrophyType, index: number) => {
+				{ tr === null ? (<Loader />) : tr?.map((trophy: TrophyType, index: number) => {
 					return (
 						<div className={styles.trophyContainer} key={index}>
 							<p className={styles.title}>{ trophy.title }</p>
