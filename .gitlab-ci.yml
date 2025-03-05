@@ -1,0 +1,61 @@
+include:
+  - project: pipelines/pipelines
+    ref: master
+    file:
+      - "/jobs/build.yaml"
+      - "/jobs/docker.yaml"
+      - "/jobs/rules.yaml"
+
+.global-variables:
+  variables:
+    SSH_USER: "$ENV_SSH_USER"
+    SSH_HOST: "$ENV_SSH_HOST"
+    SSH_PRIVATE_KEY_BASE64: "$ENV_PRIVATE_KEY_BASE64"
+    SSL_CERTIFICATE: "$SSL_CERTIFICATE"
+    SSL_PRIVATE_KEY: "$SSL_PRIVATE_KEY"
+
+# Измененный пайплайн с зеркалами
+.build:
+  image:
+    name: gcr.io/kaniko-project/executor:v1.23.2-debug
+    entrypoint: [""]
+  stage: build
+  variables:
+    DOCKERFILE_PATH: Dockerfile
+    DOCKER_CONFIG: /kaniko/.docker
+    CONTEXT: $CI_PROJECT_DIR
+    IMAGE_TAG: $CI_COMMIT_SHA
+    IMAGE_NAME: $CI_REGISTRY_IMAGE:$IMAGE_TAG
+    REGISTRY_USER: $CI_REGISTRY_USER
+    REGISTRY_PASSWORD: $CI_REGISTRY_PASSWORD
+    REGISTRY_URL: $CI_REGISTRY
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$REGISTRY_USER\",\"password\":\"$REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor
+      --context "${CONTEXT}"
+      --registry-mirror="gitlab.prodcontest.ru:5015"
+      --registry-mirror="dockerhub.timeweb.cloud"
+      --dockerfile "${CI_PROJECT_DIR}/${DOCKERFILE_PATH}"
+      --destination "${IMAGE_NAME}"
+      --cache=True
+      --skip-tls-verify
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  extends:
+    - .build
+    - .rules-merge-or-master
+
+deploy:
+  stage: deploy
+  extends:
+    - .docker_run
+    - .global-variables
+    - .rules-merge-or-master
+  variables:
+    OPT_DOCKER: "-p 8081:3000 --restart unless-stopped"

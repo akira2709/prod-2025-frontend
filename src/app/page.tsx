@@ -1,10 +1,6 @@
-
-
+"use server"
+import { redirect } from "next/navigation"
 const MainPage = () => {
-	return (
-		<main>
-			main page
-		</main>
-	)
+  redirect("/client")
 }
 export default MainPage

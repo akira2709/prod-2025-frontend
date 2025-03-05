@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 import WorkboxPlugin from "workbox-webpack-plugin"
 
 const nextConfig: NextConfig = {
+  eslint: {},
+  reactStrictMode: true,
   webpack(config) {
     // Добавляем плагин Workbox для генерации service worker
     config.plugins = [
@@ -12,9 +14,9 @@ const nextConfig: NextConfig = {
         runtimeCaching: [
           {
             urlPattern: /^https?.*/, // Кэширует все HTTPS-запросы
-            handler: 'NetworkFirst', // Сначала пытается получить данные из сети, затем из кэша
+            handler: "NetworkFirst", // Сначала пытается получить данные из сети, затем из кэша
             options: {
-              cacheName: 'offlineCache', // Название кэша
+              cacheName: "offlineCache", // Название кэша
               expiration: {
                 maxEntries: 20, // Максимальное количество записей в кэше
               },
@@ -22,10 +24,9 @@ const nextConfig: NextConfig = {
           },
         ],
       }),
-    ];
-
-    return config;
+    ]
+    return config
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

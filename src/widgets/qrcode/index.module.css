@@ -1,0 +1,20 @@
+.qrcodeContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qrcode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+}

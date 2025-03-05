@@ -1,0 +1,11 @@
+.container {
+  background-color: var(--grey-400);
+  color: #fff;
+  border-radius: 20px;
+  width: 100%;
+  gap: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--grey-200);
+}

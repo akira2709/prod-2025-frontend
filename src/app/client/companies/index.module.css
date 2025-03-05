@@ -1,0 +1,17 @@
+.title {
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 32px;
+}
+.container {
+  padding: 12px;
+  width: 100%;
+}
+.companyList {
+  margin-top: 20px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
